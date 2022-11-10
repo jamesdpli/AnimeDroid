@@ -1,4 +1,6 @@
 package com.example.animedroid.ui.viewmodel
 
-class AnimeDetailsViewModel {
+import androidx.lifecycle.ViewModel
+
+class AnimeDetailsViewModel : ViewModel() {
 }
