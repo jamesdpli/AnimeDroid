@@ -11,11 +11,5 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        GlobalScope.launch {
-            val myval = RetrofitInstance.animeService.getAnimes().body()
-            Log.d("HelpMe", myval.toString())
-        }
-
     }
 }
