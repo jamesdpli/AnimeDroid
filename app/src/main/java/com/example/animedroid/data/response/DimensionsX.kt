@@ -1,8 +1,8 @@
 package com.example.animedroid.data.response
 
 data class DimensionsX(
-    val large: LargeX,
+    val large: Large,
     val medium: Medium,
-    val small: SmallX,
-    val tiny: TinyX
+    val small: Small,
+    val tiny: Tiny
 )
