@@ -32,15 +32,6 @@ class AnimeDetailsFragment : Fragment() {
     ): View? {
         _binding = FragmentAnimeDetailsBinding.inflate(inflater, container, false)
         val view = binding.root
-
-        viewModel.getAnimes()
-        viewModel.animeLiveData.observe(viewLifecycleOwner) {
-            response ->
-            binding.tvAnimeName.text = response.data[2].attributes.canonicalTitle
-            binding.ivAnimeImage.load(response.data[2].attributes.posterImage.medium)
-            binding.tvAnimeDescription.text = response.data[2].attributes.description
-        }
-
         return view
     }
 
