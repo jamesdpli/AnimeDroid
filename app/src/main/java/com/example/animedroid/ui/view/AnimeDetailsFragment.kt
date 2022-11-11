@@ -36,9 +36,9 @@ class AnimeDetailsFragment : Fragment() {
         viewModel.getAnimes()
         viewModel.animeLiveData.observe(viewLifecycleOwner) {
             response ->
-            binding.tvAnimeName.text = response.data[7].attributes.canonicalTitle
-            binding.ivAnimeImage.load(response.data[7].attributes.posterImage.medium)
-            binding.tvAnimeDescription.text = response.data[7].attributes.description
+            binding.tvAnimeName.text = response.data[2].attributes.canonicalTitle
+            binding.ivAnimeImage.load(response.data[2].attributes.posterImage.medium)
+            binding.tvAnimeDescription.text = response.data[2].attributes.description
         }
 
         return view

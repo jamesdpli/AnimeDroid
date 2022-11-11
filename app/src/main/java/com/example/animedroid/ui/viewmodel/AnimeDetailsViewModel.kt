@@ -4,15 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.animedroid.data.AnimeApi
 import com.example.animedroid.data.AnimesRepository
-import com.example.animedroid.data.RemoteAnimesDataSource
 import com.example.animedroid.data.response.AnimeResponse
 import kotlinx.coroutines.launch
 
-class AnimeDetailsViewModel: ViewModel() {
+class AnimeDetailsViewModel : ViewModel() {
 
-    private val repository = AnimesRepository(RemoteAnimesDataSource(AnimeApi))
+    private val repository = AnimesRepository()
 
     private val _animeLiveData = MutableLiveData<AnimeResponse>()
     val animeLiveData: LiveData<AnimeResponse> = _animeLiveData
