@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface AnimeService {
     @GET("anime")
-    suspend fun getAnimes() : Response<AnimeResponse>
+    suspend fun getAnimes(): Response<AnimeResponse>
 }

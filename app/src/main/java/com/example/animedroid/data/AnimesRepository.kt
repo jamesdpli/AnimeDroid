@@ -10,5 +10,4 @@ class AnimesRepository {
     suspend fun getAnimes(): Response<AnimeResponse> {
         return remoteAnimesDataSource.getAnimes()
     }
-
 }

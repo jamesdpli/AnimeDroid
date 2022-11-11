@@ -22,6 +22,4 @@ class AnimeDetailsViewModel : ViewModel() {
             _animeLiveData.postValue(response)
         }
     }
-
-
 }

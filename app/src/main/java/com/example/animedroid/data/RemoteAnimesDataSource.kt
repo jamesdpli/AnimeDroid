@@ -10,5 +10,4 @@ class RemoteAnimesDataSource {
     suspend fun getAnimes(): Response<AnimeResponse> {
         return animeApi.animeService.getAnimes()
     }
-
 }

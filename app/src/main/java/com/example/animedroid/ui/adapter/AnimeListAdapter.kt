@@ -1,4 +1,3 @@
 package com.example.animedroid.ui.adapter
 
-class AnimeListAdapter {
-}
+class AnimeListAdapter
