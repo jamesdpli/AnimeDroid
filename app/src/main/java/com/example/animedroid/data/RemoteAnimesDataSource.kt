@@ -1,4 +1,7 @@
 package com.example.animedroid.data
 
-class RemoteAnimesDataSource {
+class RemoteAnimesDataSource(
+    private val animeApi: AnimeApi
+) {
+
 }

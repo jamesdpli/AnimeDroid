@@ -10,6 +10,6 @@ val retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 
-object RetrofitInstance {
+object AnimeApi {
     val animeService = retrofit.create(AnimeService::class.java)
 }
