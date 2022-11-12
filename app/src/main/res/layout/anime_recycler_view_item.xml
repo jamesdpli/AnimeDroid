@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/ivAnimeImage"
+            android:id="@+id/ivAnimeImageInRv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
@@ -20,12 +20,12 @@
 
 
         <TextView
-            android:id="@+id/tvAnimeName"
+            android:id="@+id/tvAnimeNameInRv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="hello"
-            app:layout_constraintStart_toStartOf="@id/ivAnimeImage"
-            app:layout_constraintTop_toBottomOf="@id/ivAnimeImage" />
+            app:layout_constraintStart_toStartOf="@id/ivAnimeImageInRv"
+            app:layout_constraintTop_toBottomOf="@id/ivAnimeImageInRv" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
