@@ -14,12 +14,21 @@ class AnimeListAdapter(private val animeList: List<Data>) :
     class AnimeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val animeName: TextView
         val animeRating: TextView
+        val animeEpisodeCount: TextView
+        val animeStartDate: TextView
+        val animeEndDate: TextView
         val animeImage: ImageView
 
         init {
-            animeName = view.findViewById(R.id.mtvAnimeNameInRv)
-            animeImage = view.findViewById(R.id.mivAnimeImageInRv)
-            animeRating = view.findViewById(R.id.mtvAgeRating)
+            with(view) {
+                animeName = findViewById(R.id.mtvAnimeNameInRv)
+                animeImage = findViewById(R.id.mivAnimeImageInRv)
+                animeRating = findViewById(R.id.mtvAgeRatingInRv)
+                animeEpisodeCount = findViewById(R.id.mtvEpisodeCountInRv)
+                animeStartDate = findViewById(R.id.mtvStartDateInRv)
+                animeEndDate = findViewById(R.id.mtvEndDateInRv)
+            }
+
         }
     }
 
@@ -34,9 +43,12 @@ class AnimeListAdapter(private val animeList: List<Data>) :
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: AnimeViewHolder, position: Int) {
         with(viewHolder) {
-            animeName.text = animeList[position].attributes.canonicalTitle
             animeImage.load(animeList[position].attributes.posterImage.small)
-            animeRating.text = animeList[position].attributes.ageRating
+            animeName.text = animeList[position].attributes.canonicalTitle
+            animeStartDate.text = "Start Date: ${animeList[position].attributes.startDate}"
+            animeEndDate.text = "End Date: ${animeList[position].attributes.endDate}"
+            animeEpisodeCount.text = "Episode Count: ${animeList[position].attributes.episodeCount}"
+            animeRating.text = "Rated: ${animeList[position].attributes.ageRating}"
         }
     }
 

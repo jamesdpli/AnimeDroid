@@ -33,18 +33,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            app:layout_constraintBottom_toBottomOf="@id/mivAnimeImageInRv"
             app:layout_constraintStart_toEndOf="@id/mivAnimeImageInRv"
             app:layout_constraintTop_toTopOf="@id/mivAnimeImageInRv"
-            app:layout_constraintVertical_bias="0.179"
             tools:text="hello" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/mtvAgeRating"
+            android:id="@+id/mtvAgeRatingInRv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Rated R" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvStartDateInRv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toEndOf="@id/mivAnimeImageInRv"
+            app:layout_constraintTop_toBottomOf="@+id/mtvAnimeNameInRv"
+            tools:text="Rated R" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvEndDateInRv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/mivAnimeImageInRv"
+            app:layout_constraintTop_toBottomOf="@+id/mtvStartDateInRv"
+            tools:text="Rated R" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvEpisodeCountInRv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/mivAnimeImageInRv"
+            app:layout_constraintTop_toBottomOf="@+id/mtvEndDateInRv"
             tools:text="Rated R" />
 
 
