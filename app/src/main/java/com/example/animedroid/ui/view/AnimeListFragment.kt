@@ -33,11 +33,9 @@ class AnimeListFragment : Fragment() {
             response ->
             val adapter = AnimeListAdapter(response.data)
             val recyclerView = binding.rvAnimeList
-            recyclerView?.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            recyclerView?.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
             recyclerView?.adapter = adapter
         }
-
-
         return view
     }
 

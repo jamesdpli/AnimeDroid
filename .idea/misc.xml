@@ -4,7 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/anime_recycler_view_item.xml" value="0.15416666666666667" />
+        <entry key="app/src/main/res/layout/anime_recycler_view_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_anime_details.xml" value="0.20742753623188406" />
         <entry key="app/src/main/res/layout/fragment_anime_list.xml" value="0.15520833333333334" />
       </map>

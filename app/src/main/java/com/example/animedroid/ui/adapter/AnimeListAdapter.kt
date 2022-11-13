@@ -33,7 +33,7 @@ class AnimeListAdapter(private val animeList: List<Data>) :
     override fun onBindViewHolder(viewHolder: AnimeViewHolder, position: Int) {
         with(viewHolder) {
             animeName.text = animeList[position].attributes.canonicalTitle
-            animeImage.load(animeList[position].attributes.posterImage.medium)
+            animeImage.load(animeList[position].attributes.posterImage.small)
         }
     }
 
