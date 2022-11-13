@@ -10,32 +10,42 @@
     android:checkable="true"
     android:clickable="true"
     android:focusable="true"
-    app:cardCornerRadius="15dp"
-    app:cardElevation="6dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/ivAnimeImageInRv"
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/mivAnimeImageInRv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             tools:srcCompat="@drawable/ic_launcher_background" />
 
 
-        <TextView
-            android:id="@+id/tvAnimeNameInRv"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvAnimeNameInRv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="hello"
-            app:layout_constraintStart_toEndOf="@id/ivAnimeImageInRv"
-            app:layout_constraintTop_toTopOf="@id/ivAnimeImageInRv"
-            app:layout_constraintBottom_toBottomOf="@id/ivAnimeImageInRv"/>
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toBottomOf="@id/mivAnimeImageInRv"
+            app:layout_constraintStart_toEndOf="@id/mivAnimeImageInRv"
+            app:layout_constraintTop_toTopOf="@id/mivAnimeImageInRv"
+            app:layout_constraintVertical_bias="0.179"
+            tools:text="hello" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvAgeRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Rated R" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

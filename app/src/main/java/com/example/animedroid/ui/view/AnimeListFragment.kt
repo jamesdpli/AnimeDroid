@@ -30,7 +30,7 @@ class AnimeListFragment : Fragment() {
 
         viewModel.getAnimes()
         viewModel.animeLiveData.observe(viewLifecycleOwner) {
-            response ->
+                response ->
             val adapter = AnimeListAdapter(response.data)
             val recyclerView = binding.rvAnimeList
             recyclerView?.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)

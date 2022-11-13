@@ -13,11 +13,13 @@ class AnimeListAdapter(private val animeList: List<Data>) :
 
     class AnimeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val animeName: TextView
+        val animeRating: TextView
         val animeImage: ImageView
 
         init {
-            animeName = view.findViewById(R.id.tvAnimeNameInRv)
-            animeImage = view.findViewById(R.id.ivAnimeImageInRv)
+            animeName = view.findViewById(R.id.mtvAnimeNameInRv)
+            animeImage = view.findViewById(R.id.mivAnimeImageInRv)
+            animeRating = view.findViewById(R.id.mtvAgeRating)
         }
     }
 
@@ -34,9 +36,9 @@ class AnimeListAdapter(private val animeList: List<Data>) :
         with(viewHolder) {
             animeName.text = animeList[position].attributes.canonicalTitle
             animeImage.load(animeList[position].attributes.posterImage.small)
+            animeRating.text = animeList[position].attributes.ageRating
         }
     }
 
     override fun getItemCount() = animeList.size
-
 }

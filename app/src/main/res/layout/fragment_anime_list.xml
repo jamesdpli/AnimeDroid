@@ -8,22 +8,13 @@
     android:layout_height="match_parent"
     tools:context="com.example.animedroid.ui.view.AnimeListFragment">
 
-    <TextView
-        android:id="@+id/tvRecycelerViewHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Check Out the list below"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAnimeList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tvRecycelerViewHeader"
-        app:layout_constraintStart_toStartOf="@+id/tvRecycelerViewHeader"
-        app:layout_constraintTop_toBottomOf="@+id/tvRecycelerViewHeader" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
