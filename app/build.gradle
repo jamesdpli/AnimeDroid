@@ -54,4 +54,7 @@ dependencies {
 
     //Ktx
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
+
+    //Material
+    implementation "androidx.compose.material:material:1.3.1"
 }
