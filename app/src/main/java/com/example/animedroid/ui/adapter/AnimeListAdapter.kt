@@ -31,8 +31,10 @@ class AnimeListAdapter(private val animeList: List<Data>) :
 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: AnimeViewHolder, position: Int) {
-        viewHolder.animeName.text = animeList[position].attributes.canonicalTitle
-        viewHolder.animeImage.load(animeList[position].attributes.posterImage.medium)
+        with(viewHolder) {
+            animeName.text = animeList[position].attributes.canonicalTitle
+            animeImage.load(animeList[position].attributes.posterImage.medium)
+        }
     }
 
     override fun getItemCount() = animeList.size

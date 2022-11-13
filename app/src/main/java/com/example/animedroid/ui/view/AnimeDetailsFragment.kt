@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.animedroid.databinding.FragmentAnimeDetailsBinding
 import com.example.animedroid.ui.viewmodel.AnimeDetailsViewModel
+import com.example.animedroid.ui.viewmodel.AnimeListViewModel
 
 class AnimeDetailsFragment : Fragment() {
 
