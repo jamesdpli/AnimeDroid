@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.animeListFragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
 
-
         setContentView(view)
     }
 }

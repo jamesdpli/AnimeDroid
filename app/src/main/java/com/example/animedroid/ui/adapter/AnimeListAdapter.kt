@@ -28,7 +28,6 @@ class AnimeListAdapter(private val animeList: List<Data>) :
                 animeStartDate = findViewById(R.id.mtvStartDateInRv)
                 animeEndDate = findViewById(R.id.mtvEndDateInRv)
             }
-
         }
     }
 
