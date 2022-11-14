@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/animeListFragment">
 
+    <fragment
+        android:id="@+id/animeListFragment"
+        android:name="com.example.animedroid.ui.view.AnimeListFragment"
+        android:label="fragment_anime_list"
+        tools:layout="@layout/fragment_anime_list" >
+        <action
+            android:id="@+id/action_animeListFragment_to_animeDetailsFragment2"
+            app:destination="@id/animeDetailsFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/animeDetailsFragment2"
+        android:name="com.example.animedroid.ui.view.AnimeDetailsFragment"
+        android:label="fragment_anime_details"
+        tools:layout="@layout/fragment_anime_details" />
 </navigation>
