@@ -11,7 +11,11 @@ import com.example.animedroid.data.response.Data
 class AnimeListAdapter(private val animeList: List<Data>) :
     RecyclerView.Adapter<AnimeListAdapter.AnimeViewHolder>() {
 
+    var onItemClick: ((Data) -> Unit)? = null
+
     class AnimeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+        // List Members
         val animeName: TextView
         val animeRating: TextView
         val animeEpisodeCount: TextView
@@ -19,6 +23,7 @@ class AnimeListAdapter(private val animeList: List<Data>) :
         val animeEndDate: TextView
         val animeImage: ImageView
 
+        // Initialise members
         init {
             with(view) {
                 animeName = findViewById(R.id.mtvAnimeNameInRv)
@@ -28,6 +33,17 @@ class AnimeListAdapter(private val animeList: List<Data>) :
                 animeStartDate = findViewById(R.id.mtvStartDateInRv)
                 animeEndDate = findViewById(R.id.mtvEndDateInRv)
             }
+        }
+
+        // Bind members
+        fun bind(animeData: Data) {
+            val animeAttributes = animeData.attributes
+            animeImage.load(animeAttributes.posterImage.small)
+            animeName.text = animeAttributes.canonicalTitle
+            animeStartDate.text = "Start Date: ${animeAttributes.startDate}"
+            animeEndDate.text = "End Date: ${animeAttributes.endDate}"
+            animeEpisodeCount.text = "Episode Count: ${animeAttributes.episodeCount}"
+            animeRating.text = "Rated: ${animeAttributes.ageRating}"
         }
     }
 
@@ -41,14 +57,7 @@ class AnimeListAdapter(private val animeList: List<Data>) :
 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: AnimeViewHolder, position: Int) {
-        with(viewHolder) {
-            animeImage.load(animeList[position].attributes.posterImage.small)
-            animeName.text = animeList[position].attributes.canonicalTitle
-            animeStartDate.text = "Start Date: ${animeList[position].attributes.startDate}"
-            animeEndDate.text = "End Date: ${animeList[position].attributes.endDate}"
-            animeEpisodeCount.text = "Episode Count: ${animeList[position].attributes.episodeCount}"
-            animeRating.text = "Rated: ${animeList[position].attributes.ageRating}"
-        }
+        viewHolder.bind(animeList[position])
     }
 
     override fun getItemCount() = animeList.size

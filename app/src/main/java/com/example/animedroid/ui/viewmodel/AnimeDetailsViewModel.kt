@@ -19,7 +19,7 @@ class AnimeDetailsViewModel : ViewModel() {
         viewModelScope.launch {
             val response = repository.getAnimes().body()
 
-            _animeLiveData.postValue(response)
+            _animeLiveData.value = response
         }
     }
 }
