@@ -29,14 +29,15 @@ class AnimeListFragment : Fragment() {
         val view = binding.root
 
         viewModel.getAnimes()
-        viewModel.animeLiveData.observe(viewLifecycleOwner) {
-                response ->
-            //TO-DO pass in vm instead
+        viewModel.animeLiveData.observe(viewLifecycleOwner) { response ->
+            // TO-DO pass in vm instead
             val adapter = AnimeListAdapter(response.data)
             val recyclerView = binding.rvAnimeList
-            recyclerView?.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+            recyclerView?.layoutManager =
+                StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
             recyclerView?.adapter = adapter
         }
+
         return view
     }
 

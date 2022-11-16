@@ -9,7 +9,11 @@
         android:id="@+id/animeListFragment"
         android:name="com.example.animedroid.ui.view.AnimeListFragment"
         android:label="fragment_anime_list"
-        tools:layout="@layout/fragment_anime_list" />
+        tools:layout="@layout/fragment_anime_list" >
+        <action
+            android:id="@+id/action_animeListFragment_to_animeDetailsFragment"
+            app:destination="@id/animeDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/animeDetailsFragment"
         android:name="com.example.animedroid.ui.view.AnimeDetailsFragment"
