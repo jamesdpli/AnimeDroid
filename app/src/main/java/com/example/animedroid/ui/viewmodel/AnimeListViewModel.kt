@@ -9,6 +9,7 @@ import com.example.animedroid.data.response.AnimeResponse
 import kotlinx.coroutines.launch
 
 class AnimeListViewModel : ViewModel() {
+
     private val repository = AnimesRepository()
 
     private val _animeLiveData = MutableLiveData<AnimeResponse>()
@@ -17,8 +18,7 @@ class AnimeListViewModel : ViewModel() {
     fun getAnimes() {
         viewModelScope.launch {
             val response = repository.getAnimes().body()
-
-            _animeLiveData.postValue(response)
+            _animeLiveData.postValue(response!!)
         }
     }
 }
