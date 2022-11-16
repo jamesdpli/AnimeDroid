@@ -9,16 +9,17 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.animedroid.databinding.FragmentAnimeListBinding
-import com.example.animedroid.ui.viewmodel.AnimeListViewModel
+import com.example.animedroid.ui.viewmodel.SharedAnimeViewModel
 
 class AnimeListFragment : Fragment() {
 
-    private val viewModel: AnimeListViewModel by lazy {
-        ViewModelProvider(this)[AnimeListViewModel::class.java]
+    private val viewModel: SharedAnimeViewModel by lazy {
+        ViewModelProvider(this)[SharedAnimeViewModel::class.java]
     }
-
     private var _binding: FragmentAnimeListBinding? = null
     private val binding get() = _binding!!
+
+    private val animeListAdapter = AnimeListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,18 +28,23 @@ class AnimeListFragment : Fragment() {
     ): View? {
         _binding = FragmentAnimeListBinding.inflate(layoutInflater, container, false)
         val view = binding.root
+        setUpUI()
+        setUpObserver()
+        return view
+    }
 
+    private fun setUpUI() {
+        binding.rvAnimeList.layoutManager =
+            StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+        binding.rvAnimeList.adapter = animeListAdapter
+    }
+
+    private fun setUpObserver() {
         viewModel.getAnimes()
         viewModel.animeLiveData.observe(viewLifecycleOwner) { response ->
-            // TO-DO pass in vm instead
-            val adapter = AnimeListAdapter(response.data)
-            val recyclerView = binding.rvAnimeList
-            recyclerView?.layoutManager =
-                StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
-            recyclerView?.adapter = adapter
+            animeListAdapter.setAnimeList(response.data)
+            binding.rvAnimeList.adapter = animeListAdapter
         }
-
-        return view
     }
 
     override fun onDestroyView() {

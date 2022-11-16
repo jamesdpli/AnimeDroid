@@ -8,10 +8,14 @@ import coil.load
 import com.example.animedroid.R
 import com.example.animedroid.data.response.Data
 
-class AnimeListAdapter(private val animeList: List<Data>) :
+class AnimeListAdapter() :
     RecyclerView.Adapter<AnimeListAdapter.AnimeViewHolder>() {
 
-    var onItemClick: ((Data) -> Unit)? = null
+    var animeListData = mutableListOf<Data>()
+
+    fun setAnimeList(animeListData: List<Data>) {
+        this.animeListData = animeListData.toMutableList()
+    }
 
     class AnimeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -57,8 +61,8 @@ class AnimeListAdapter(private val animeList: List<Data>) :
 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: AnimeViewHolder, position: Int) {
-        viewHolder.bind(animeList[position])
+        viewHolder.bind(animeListData[position])
     }
 
-    override fun getItemCount() = animeList.size
+    override fun getItemCount() = animeListData.size
 }
