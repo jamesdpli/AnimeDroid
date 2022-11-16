@@ -5,9 +5,9 @@ import retrofit2.Response
 
 class AnimesRepository {
 
-    private val remoteAnimesDataSource = RemoteAnimesDataSource()
+    private val animeApi = AnimeApi.animeService
 
     suspend fun getAnimes(): Response<AnimeResponse> {
-        return remoteAnimesDataSource.getAnimes()
+        return animeApi.getAnimes()
     }
 }
