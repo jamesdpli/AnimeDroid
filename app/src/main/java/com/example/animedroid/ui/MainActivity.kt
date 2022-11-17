@@ -1,9 +1,10 @@
-package com.example.animedroid
+package com.example.animedroid.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.example.animedroid.R
 import com.example.animedroid.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

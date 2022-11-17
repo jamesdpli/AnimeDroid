@@ -49,7 +49,7 @@ class AnimeListFragment : Fragment() {
     }
 
     private fun onListItemClick(position: Int) {
-        Toast.makeText(context, "List Position:${position + 1}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "List Position: ${position + 1}", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {
