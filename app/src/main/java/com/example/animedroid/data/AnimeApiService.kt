@@ -14,7 +14,7 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface AnimeService {
-    @GET("anime")
+    @GET("anime?page%5Blimit%5D=20")
     suspend fun getAnimes(): Response<AnimeResponse>
 }
 
