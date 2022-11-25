@@ -16,6 +16,7 @@ class AnimeListAdapter() : RecyclerView.Adapter<AnimeListAdapter.AnimeViewHolder
 
     fun setAnimeList(animeListData: List<Data>) {
         this.animeListData = animeListData.toMutableList()
+        notifyDataSetChanged()
     }
 
     class AnimeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
