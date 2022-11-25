@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.animedroid.R
 import com.example.animedroid.databinding.FragmentAnimeListBinding
 import com.example.animedroid.ui.viewmodels.SharedAnimeViewModel
 
@@ -21,7 +23,8 @@ class AnimeListFragment : Fragment() {
         ViewModelProvider(this)[SharedAnimeViewModel::class.java]
     }
 
-    private val animeListAdapter = AnimeListAdapter { position -> onListItemClick(position) }
+    private val animeListAdapter = AnimeListAdapter(AnimeListAdapter.OnClickListener { findNavController().navigate(
+        R.id.action_animeListFragment_to_animeDetailsFragment) })
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,10 +49,6 @@ class AnimeListFragment : Fragment() {
         viewModel.animeLiveData.observe(viewLifecycleOwner) { response ->
             animeListAdapter.setAnimeList(response.data)
         }
-    }
-
-    private fun onListItemClick(position: Int) {
-        Toast.makeText(context, "List Position: ${position + 1}", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {

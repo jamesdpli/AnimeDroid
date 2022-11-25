@@ -3,23 +3,35 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.animedroid.R
 import com.example.animedroid.data.responses.Data
 
-class AnimeListAdapter(private val onItemClicked: (position: Int) -> Unit) :
-    RecyclerView.Adapter<AnimeListAdapter.AnimeViewHolder>() {
+class AnimeListAdapter(private val onClickListener: OnClickListener) :
+    androidx.recyclerview.widget.ListAdapter<Data, AnimeListAdapter.AnimeViewHolder>(MyDiffUtil) {
+
+    companion object MyDiffUtil : DiffUtil.ItemCallback<Data>() {
+        override fun areItemsTheSame(oldItem: Data, newItem: Data): Boolean {
+            return oldItem == newItem
+        }
+
+        override fun areContentsTheSame(oldItem: Data, newItem: Data): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+
+    }
 
     var animeListData = mutableListOf<Data>()
 
     fun setAnimeList(animeListData: List<Data>) {
         this.animeListData = animeListData.toMutableList()
-        notifyDataSetChanged()
     }
 
-    class AnimeViewHolder(view: View, private val onItemClicked: (position: Int) -> Unit) :
-        RecyclerView.ViewHolder(view), View.OnClickListener {
+    inner class AnimeViewHolder(view: View) :
+        RecyclerView.ViewHolder(view) {
 
         // List Members
         val animeName: TextView
@@ -38,7 +50,6 @@ class AnimeListAdapter(private val onItemClicked: (position: Int) -> Unit) :
                 animeEpisodeCount = findViewById(R.id.mtvEpisodeCountInRv)
                 animeStartDate = findViewById(R.id.mtvStartDateInRv)
                 animeEndDate = findViewById(R.id.mtvEndDateInRv)
-                itemView.setOnClickListener(this@AnimeViewHolder)
             }
         }
 
@@ -52,11 +63,6 @@ class AnimeListAdapter(private val onItemClicked: (position: Int) -> Unit) :
             animeEpisodeCount.text = "Episode Count: ${animeAttributes.episodeCount}"
             animeRating.text = "Rated: ${animeAttributes.ageRating}"
         }
-
-        override fun onClick(v: View?) {
-            val position = adapterPosition
-            onItemClicked(position)
-        }
     }
 
     // Create new views (invoked by the layout manager)
@@ -64,13 +70,21 @@ class AnimeListAdapter(private val onItemClicked: (position: Int) -> Unit) :
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.anime_recycler_view_item, viewGroup, false)
-        return AnimeViewHolder(view, onItemClicked)
+        return AnimeViewHolder(view)
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: AnimeViewHolder, position: Int) {
+        val data = getItem(position)
+        viewHolder.itemView.setOnClickListener {
+            onClickListener.onClick(data)
+        }
         viewHolder.bind(animeListData[position])
     }
 
     override fun getItemCount() = animeListData.size
+
+    class OnClickListener(val clickListener: (data: Data) -> Unit) {
+        fun onClick(data: Data) = clickListener(data)
+    }
 }
