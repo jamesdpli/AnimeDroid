@@ -9,10 +9,14 @@
         android:id="@+id/animeListFragment"
         android:name="com.example.animedroid.ui.views.AnimeListFragment"
         android:label="fragment_anime_list"
-        tools:layout="@layout/fragment_anime_list" >
+        tools:layout="@layout/fragment_anime_list">
         <action
             android:id="@+id/action_animeListFragment_to_animeDetailsFragment"
             app:destination="@id/animeDetailsFragment" />
+        <argument
+            android:name="animeId"
+            android:defaultValue="0"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/animeDetailsFragment"
