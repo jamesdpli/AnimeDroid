@@ -1,6 +1,7 @@
 package com.example.animedroid.data
 
 import com.example.animedroid.data.responses.AnimeResponse
+import com.example.animedroid.data.responses.Data
 import retrofit2.Response
 
 class AnimesRepository {
@@ -10,4 +11,9 @@ class AnimesRepository {
     suspend fun getAnimes(): Response<AnimeResponse> {
         return animeApi.getAnimes()
     }
+
+    suspend fun getAnimeById(animeId: Int): Response<Data> {
+        return animeApi.getAnimeById(animeId)
+    }
+
 }

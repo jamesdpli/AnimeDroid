@@ -8,7 +8,7 @@ import com.example.animedroid.data.AnimesRepository
 import com.example.animedroid.data.responses.AnimeResponse
 import kotlinx.coroutines.launch
 
-class SharedAnimeViewModel : ViewModel() {
+class AnimeListFragmentViewModel : ViewModel() {
 
     private val repository = AnimesRepository()
 

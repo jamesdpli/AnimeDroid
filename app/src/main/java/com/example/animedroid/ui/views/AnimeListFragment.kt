@@ -9,15 +9,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.animedroid.databinding.FragmentAnimeListBinding
-import com.example.animedroid.ui.viewmodels.SharedAnimeViewModel
+import com.example.animedroid.ui.viewmodels.AnimeListFragmentViewModel
 
 class AnimeListFragment : Fragment() {
 
     private var _binding: FragmentAnimeListBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: SharedAnimeViewModel by lazy {
-        ViewModelProvider(this)[SharedAnimeViewModel::class.java]
+    private val viewModel: AnimeListFragmentViewModel by lazy {
+        ViewModelProvider(this)[AnimeListFragmentViewModel::class.java]
     }
 
     private val animeListAdapter = AnimeListAdapter()
