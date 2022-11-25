@@ -13,7 +13,7 @@ class AnimeDetailFragmentViewModel : ViewModel() {
     private val repository = AnimesRepository()
 
     private val _animeDetailLiveData = MutableLiveData<Data>()
-    val animeLiveData: LiveData<Data> = _animeDetailLiveData
+    val animeDetailLiveData: LiveData<Data> = _animeDetailLiveData
 
     fun getAnimeById(animeId: Int) {
         viewModelScope.launch {
