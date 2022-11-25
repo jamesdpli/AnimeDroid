@@ -1,28 +1,16 @@
+package com.example.animedroid.ui.adapters
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.animedroid.R
 import com.example.animedroid.data.responses.Data
 
-class AnimeListAdapter(private val onClickListener: OnClickListener) :
-    androidx.recyclerview.widget.ListAdapter<Data, AnimeListAdapter.AnimeViewHolder>(MyDiffUtil) {
-
-    companion object MyDiffUtil : DiffUtil.ItemCallback<Data>() {
-        override fun areItemsTheSame(oldItem: Data, newItem: Data): Boolean {
-            return oldItem == newItem
-        }
-
-        override fun areContentsTheSame(oldItem: Data, newItem: Data): Boolean {
-            return oldItem.id == newItem.id
-        }
-
-
-    }
+class AnimeListAdapter() : RecyclerView.Adapter<AnimeListAdapter.AnimeViewHolder>() {
 
     var animeListData = mutableListOf<Data>()
 
@@ -30,8 +18,7 @@ class AnimeListAdapter(private val onClickListener: OnClickListener) :
         this.animeListData = animeListData.toMutableList()
     }
 
-    inner class AnimeViewHolder(view: View) :
-        RecyclerView.ViewHolder(view) {
+    class AnimeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         // List Members
         val animeName: TextView
@@ -75,16 +62,8 @@ class AnimeListAdapter(private val onClickListener: OnClickListener) :
 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: AnimeViewHolder, position: Int) {
-        val data = getItem(position)
-        viewHolder.itemView.setOnClickListener {
-            onClickListener.onClick(data)
-        }
         viewHolder.bind(animeListData[position])
     }
 
     override fun getItemCount() = animeListData.size
-
-    class OnClickListener(val clickListener: (data: Data) -> Unit) {
-        fun onClick(data: Data) = clickListener(data)
-    }
 }

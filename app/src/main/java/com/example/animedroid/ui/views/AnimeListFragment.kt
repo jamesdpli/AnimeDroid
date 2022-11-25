@@ -1,16 +1,13 @@
 package com.example.animedroid.ui.views
 
-import AnimeListAdapter
+import com.example.animedroid.ui.adapters.AnimeListAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.animedroid.R
 import com.example.animedroid.databinding.FragmentAnimeListBinding
 import com.example.animedroid.ui.viewmodels.SharedAnimeViewModel
 
@@ -23,8 +20,7 @@ class AnimeListFragment : Fragment() {
         ViewModelProvider(this)[SharedAnimeViewModel::class.java]
     }
 
-    private val animeListAdapter = AnimeListAdapter(AnimeListAdapter.OnClickListener { findNavController().navigate(
-        R.id.action_animeListFragment_to_animeDetailsFragment) })
+    private val animeListAdapter = AnimeListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
