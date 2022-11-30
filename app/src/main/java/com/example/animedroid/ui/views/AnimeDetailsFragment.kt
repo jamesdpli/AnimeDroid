@@ -28,6 +28,13 @@ class AnimeDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentAnimeDetailsBinding.inflate(inflater, container, false)
+
+        viewModel.getAnimeById(animeId = safeArgs.animeId)
+        viewModel.animeDetailLiveData.observe(viewLifecycleOwner) {
+            response ->
+            binding.tvAnimeDescription.text = response.attributes.description
+        }
+
         return binding.root
     }
 

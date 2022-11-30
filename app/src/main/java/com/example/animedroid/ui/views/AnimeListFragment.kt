@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.animedroid.databinding.FragmentAnimeListBinding
 import com.example.animedroid.ui.viewmodels.AnimeListFragmentViewModel
+import com.example.animedroid.data.responses.Data
 
 class AnimeListFragment : Fragment() {
 
@@ -20,7 +22,7 @@ class AnimeListFragment : Fragment() {
         ViewModelProvider(this)[AnimeListFragmentViewModel::class.java]
     }
 
-    private val animeListAdapter = AnimeListAdapter()
+    private val animeListAdapter = AnimeListAdapter { anime -> adapterOnClick(anime) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,6 +47,14 @@ class AnimeListFragment : Fragment() {
         viewModel.animeLiveData.observe(viewLifecycleOwner) { response ->
             animeListAdapter.setAnimeList(response.data)
         }
+    }
+
+    private fun adapterOnClick(anime: Data) {
+        findNavController().navigate(
+            AnimeListFragmentDirections.actionAnimeListFragmentToAnimeDetailsFragment(
+                anime.id
+            )
+        )
     }
 
     override fun onDestroyView() {

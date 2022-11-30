@@ -10,7 +10,8 @@ import coil.load
 import com.example.animedroid.R
 import com.example.animedroid.data.responses.Data
 
-class AnimeListAdapter() : RecyclerView.Adapter<AnimeListAdapter.AnimeViewHolder>() {
+class AnimeListAdapter(private val onClick: (Data) -> Unit) :
+    RecyclerView.Adapter<AnimeListAdapter.AnimeViewHolder>() {
 
     var animeListData = mutableListOf<Data>()
 
@@ -19,7 +20,8 @@ class AnimeListAdapter() : RecyclerView.Adapter<AnimeListAdapter.AnimeViewHolder
         notifyDataSetChanged()
     }
 
-    class AnimeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class AnimeViewHolder(view: View, val onClick: (Data) -> Unit) :
+        RecyclerView.ViewHolder(view) {
 
         // List Members
         val animeName: TextView
@@ -28,6 +30,7 @@ class AnimeListAdapter() : RecyclerView.Adapter<AnimeListAdapter.AnimeViewHolder
         val animeStartDate: TextView
         val animeEndDate: TextView
         val animeImage: ImageView
+        private var currentAnime: Data? = null
 
         // Initialise members
         init {
@@ -38,11 +41,19 @@ class AnimeListAdapter() : RecyclerView.Adapter<AnimeListAdapter.AnimeViewHolder
                 animeEpisodeCount = findViewById(R.id.mtvEpisodeCountInRv)
                 animeStartDate = findViewById(R.id.mtvStartDateInRv)
                 animeEndDate = findViewById(R.id.mtvEndDateInRv)
+                rootView.setOnClickListener {
+                    currentAnime?.let {
+                        onClick(it)
+                    }
+                }
             }
         }
 
         // Bind members
         fun bind(animeData: Data) {
+
+            currentAnime = animeData
+
             val animeAttributes = animeData.attributes
             animeImage.load(animeAttributes.posterImage.small)
             animeName.text = animeAttributes.canonicalTitle
@@ -58,7 +69,7 @@ class AnimeListAdapter() : RecyclerView.Adapter<AnimeListAdapter.AnimeViewHolder
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.anime_recycler_view_item, viewGroup, false)
-        return AnimeViewHolder(view)
+        return AnimeViewHolder(view, onClick)
     }
 
     // Replace the contents of a view (invoked by the layout manager)
