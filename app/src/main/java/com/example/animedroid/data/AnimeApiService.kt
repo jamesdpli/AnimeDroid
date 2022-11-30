@@ -1,7 +1,7 @@
 package com.example.animedroid.data
 
+import com.example.animedroid.data.responses.AnimeListResponse
 import com.example.animedroid.data.responses.AnimeResponse
-import com.example.animedroid.data.responses.Data
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -17,10 +17,10 @@ private val retrofit = Retrofit.Builder()
 
 interface AnimeService {
     @GET("anime?page%5Blimit%5D=20")
-    suspend fun getAnimes(): Response<AnimeResponse>
+    suspend fun getAnimes(): Response<AnimeListResponse>
 
     @GET("anime/{animeId}")
-    suspend fun getAnimeById(@Path("animeId") animeId: String) : Response<Data>
+    suspend fun getAnimeById(@Path("animeId") animeId: String) : Response<AnimeResponse>
 }
 
 object AnimeApi {
