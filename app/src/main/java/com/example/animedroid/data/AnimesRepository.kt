@@ -12,7 +12,7 @@ class AnimesRepository {
         return animeApi.getAnimes()
     }
 
-    suspend fun getAnimeById(animeId: Int): Response<Data> {
+    suspend fun getAnimeById(animeId: String): Response<Data> {
         return animeApi.getAnimeById(animeId)
     }
 

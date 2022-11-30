@@ -15,7 +15,7 @@ class AnimeDetailFragmentViewModel : ViewModel() {
     private val _animeDetailLiveData = MutableLiveData<Data>()
     val animeDetailLiveData: LiveData<Data> = _animeDetailLiveData
 
-    fun getAnimeById(animeId: Int) {
+    fun getAnimeById(animeId: String) {
         viewModelScope.launch {
             val response = repository.getAnimeById(animeId).body()
             _animeDetailLiveData.postValue(response!!)

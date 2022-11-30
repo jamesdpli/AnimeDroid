@@ -20,7 +20,7 @@ interface AnimeService {
     suspend fun getAnimes(): Response<AnimeResponse>
 
     @GET("anime/{animeId}")
-    suspend fun getAnimeById(@Path("animeId") animeId: Int) : Response<Data>
+    suspend fun getAnimeById(@Path("animeId") animeId: String) : Response<Data>
 }
 
 object AnimeApi {
