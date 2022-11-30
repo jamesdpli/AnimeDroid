@@ -29,16 +29,17 @@ class AnimeDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentAnimeDetailsBinding.inflate(inflater, container, false)
+        setUpUI()
+        return binding.root
+    }
 
+    private fun setUpUI() {
         viewModel.getAnimeById(animeId = safeArgs.animeId)
-        viewModel.animeDetailLiveData.observe(viewLifecycleOwner) {
-            response ->
+        viewModel.animeDetailLiveData.observe(viewLifecycleOwner) { response ->
             binding.tvAnimeDescription.text = response.data.attributes.description
             binding.mtvAnimeNameInRv.text = response.data.attributes.canonicalTitle
-            binding.mivAnimeImageInRv.load(response.data.attributes.posterImage.original)
+            binding.mivAnimeImageInRv.load(response.data.attributes.posterImage.medium)
         }
-
-        return binding.root
     }
 
     override fun onDestroyView() {
