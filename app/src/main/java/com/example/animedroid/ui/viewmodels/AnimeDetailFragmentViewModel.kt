@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.animedroid.data.AnimesRepository
 import com.example.animedroid.data.responses.AnimeResponse
-import com.example.animedroid.data.responses.Data
 import kotlinx.coroutines.launch
 
 class AnimeDetailFragmentViewModel : ViewModel() {

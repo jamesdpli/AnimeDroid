@@ -1,13 +1,9 @@
 package com.example.animedroid.ui.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.animedroid.R
 import com.example.animedroid.data.responses.Data
 import com.example.animedroid.databinding.AnimeRecyclerViewItemBinding
 
@@ -27,12 +23,13 @@ class AnimeListAdapter(private val onClick: (Data) -> Unit) :
     ) :
         RecyclerView.ViewHolder(binding.root) {
 
+        // Late init current anime for click listener
         private lateinit var currentAnime: Data
 
         // Bind members
         fun bind(animeData: Data) {
-
             currentAnime = animeData
+
             val animeAttributes = currentAnime.attributes
 
             with(binding) {

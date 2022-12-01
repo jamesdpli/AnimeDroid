@@ -1,6 +1,5 @@
 package com.example.animedroid.ui.views
 
-import com.example.animedroid.ui.adapters.AnimeListAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.animedroid.databinding.FragmentAnimeListBinding
-import com.example.animedroid.ui.viewmodels.AnimeListFragmentViewModel
 import com.example.animedroid.data.responses.Data
+import com.example.animedroid.databinding.FragmentAnimeListBinding
+import com.example.animedroid.ui.adapters.AnimeListAdapter
+import com.example.animedroid.ui.viewmodels.AnimeListFragmentViewModel
 
 class AnimeListFragment : Fragment() {
 
