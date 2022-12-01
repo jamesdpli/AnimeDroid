@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.animedroid.R
 import com.example.animedroid.databinding.ActivityMainBinding
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.animeListFragmentContainerView)
-        return navController.navigateUp()
+        return navController.navigateUp(AppBarConfiguration(navController.graph))
                 || super.onSupportNavigateUp()
     }
 }
