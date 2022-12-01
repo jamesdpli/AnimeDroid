@@ -1,27 +1,28 @@
 package com.example.animedroid.ui.views
 
-import AnimeListAdapter
+import com.example.animedroid.ui.adapters.AnimeListAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.animedroid.databinding.FragmentAnimeListBinding
-import com.example.animedroid.ui.viewmodels.SharedAnimeViewModel
+import com.example.animedroid.ui.viewmodels.AnimeListFragmentViewModel
+import com.example.animedroid.data.responses.Data
 
 class AnimeListFragment : Fragment() {
 
     private var _binding: FragmentAnimeListBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: SharedAnimeViewModel by lazy {
-        ViewModelProvider(this)[SharedAnimeViewModel::class.java]
+    private val viewModel: AnimeListFragmentViewModel by lazy {
+        ViewModelProvider(this)[AnimeListFragmentViewModel::class.java]
     }
 
-    private val animeListAdapter = AnimeListAdapter { position -> onListItemClick(position) }
+    private val animeListAdapter = AnimeListAdapter { anime -> adapterOnClick(anime) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,8 +49,12 @@ class AnimeListFragment : Fragment() {
         }
     }
 
-    private fun onListItemClick(position: Int) {
-        Toast.makeText(context, "List Position: ${position + 1}", Toast.LENGTH_SHORT).show()
+    private fun adapterOnClick(anime: Data) {
+        findNavController().navigate(
+            AnimeListFragmentDirections.actionAnimeListFragmentToAnimeDetailsFragment(
+                anime.id
+            )
+        )
     }
 
     override fun onDestroyView() {
