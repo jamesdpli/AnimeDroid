@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.animeListFragmentContainerView)
-        return navController.navigateUp(AppBarConfiguration(navController.graph))
-                || super.onSupportNavigateUp()
+        return navController.navigateUp(AppBarConfiguration(navController.graph)) ||
+            super.onSupportNavigateUp()
     }
 }
