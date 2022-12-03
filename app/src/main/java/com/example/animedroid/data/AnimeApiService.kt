@@ -1,5 +1,6 @@
 package com.example.animedroid.data
 
+import com.example.animedroid.utils.Constant
 import com.example.animedroid.data.responses.AnimeListResponse
 import com.example.animedroid.data.responses.AnimeResponse
 import retrofit2.Response
@@ -8,10 +9,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-private const val BASE_URL: String = "https://kitsu.io/api/edge/"
-
 private val retrofit = Retrofit.Builder()
-    .baseUrl(BASE_URL)
+    .baseUrl(Constant.BASE_URL)
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 
