@@ -6,14 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.animedroid.databinding.FragmentAnimeDetailsBinding
 import com.example.animedroid.ui.viewmodels.AnimeDetailFragmentViewModel
 
 class AnimeDetailsFragment : Fragment() {
-
-    private val safeArgs: AnimeDetailsFragmentArgs by navArgs()
 
     private var _binding: FragmentAnimeDetailsBinding? = null
     private val binding get() = _binding!!
@@ -33,7 +30,8 @@ class AnimeDetailsFragment : Fragment() {
     }
 
     private fun setUpUI() {
-        viewModel.getAnimeById(animeId = safeArgs.animeId)
+        val args = this.arguments?.getString("animeId")
+        viewModel.getAnimeById(animeId = args.toString())
         viewModel.animeDetailLiveData.observe(viewLifecycleOwner) { response ->
             binding.tvAnimeDescription.text = response.data.attributes.description
             binding.mtvAnimeNameInRv.text = response.data.attributes.canonicalTitle

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.animedroid.R
 import com.example.animedroid.data.responses.Data
 import com.example.animedroid.databinding.FragmentAnimeListBinding
 import com.example.animedroid.ui.adapters.AnimeListAdapter
@@ -50,11 +51,11 @@ class AnimeListFragment : Fragment() {
     }
 
     private fun adapterOnClick(anime: Data) {
-        findNavController().navigate(
-            AnimeListFragmentDirections.actionAnimeListFragmentToAnimeDetailsFragment(
-                anime.id
-            )
-        )
+        val bundle: Bundle = Bundle()
+        val animeDetailsFragment: AnimeDetailsFragment = AnimeDetailsFragment()
+        bundle.putString("animeId", anime.id)
+        animeDetailsFragment.arguments = bundle
+        findNavController().navigate(R.id.action_animeListFragment_to_animeDetailsFragment, bundle)
     }
 
     override fun onDestroyView() {
