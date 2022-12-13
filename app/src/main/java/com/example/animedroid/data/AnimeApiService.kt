@@ -1,8 +1,8 @@
 package com.example.animedroid.data
 
-import com.example.animedroid.utils.Constant
 import com.example.animedroid.data.responses.AnimeListResponse
 import com.example.animedroid.data.responses.AnimeResponse
+import com.example.animedroid.utils.Constant
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

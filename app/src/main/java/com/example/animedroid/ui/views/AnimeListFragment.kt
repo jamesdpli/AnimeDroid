@@ -45,7 +45,7 @@ class AnimeListFragment : Fragment() {
     private fun setUpObserver() {
         viewModel.getAnimes()
         viewModel.animeLiveData.observe(viewLifecycleOwner) { response ->
-            animeListAdapter.setAnimeList(response.data)
+            animeListAdapter.submitList(response.data)
         }
     }
 
