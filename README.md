@@ -19,3 +19,5 @@ Braches:
 baseRecyclerViewExample -> Shows the Anime list with the stock RecyclerView implementation, laterin commit "Refacor RecyclerView into ListAdapter) this is changed to ListAdapter as previously I was using notifyDataSetChanged() which is bad practice.
 
 passingDataWithBundle -> Shows passing data between two screens with the android os bundle rather than using safeArgs.
+
+This is a work in progress
