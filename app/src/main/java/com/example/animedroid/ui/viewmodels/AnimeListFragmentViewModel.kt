@@ -4,16 +4,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.animedroid.data.AnimesRepository
-import com.example.animedroid.data.responses.AnimeListResponse
+import com.example.animedroid.data.AnimeRepository
+import com.example.animedroid.data.response.NetworkAnimeList
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class AnimeListFragmentViewModel : ViewModel() {
+class AnimeListFragmentViewModel @Inject constructor(private val repository: AnimeRepository) :
+    ViewModel() {
 
-    private val repository = AnimesRepository()
-
-    private val _animeLiveData = MutableLiveData<AnimeListResponse>()
-    val animeLiveData: LiveData<AnimeListResponse> = _animeLiveData
+    private val _animeLiveData = MutableLiveData<NetworkAnimeList>()
+    val animeLiveData: LiveData<NetworkAnimeList> = _animeLiveData
 
     fun getAnimes() {
         viewModelScope.launch {

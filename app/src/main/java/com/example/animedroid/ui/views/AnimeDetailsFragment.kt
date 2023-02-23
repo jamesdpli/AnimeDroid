@@ -1,5 +1,6 @@
 package com.example.animedroid.ui.views
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,9 @@ import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.animedroid.databinding.FragmentAnimeDetailsBinding
 import com.example.animedroid.ui.viewmodels.AnimeDetailFragmentViewModel
+import com.example.animedroid.ui.viewmodels.ViewModelFactory
+import dagger.android.support.AndroidSupportInjection
+import javax.inject.Inject
 
 class AnimeDetailsFragment : Fragment() {
 
@@ -18,8 +22,10 @@ class AnimeDetailsFragment : Fragment() {
     private var _binding: FragmentAnimeDetailsBinding? = null
     private val binding get() = _binding!!
 
+    @Inject lateinit var viewModelFactory: ViewModelFactory
+
     private val viewModel: AnimeDetailFragmentViewModel by lazy {
-        ViewModelProvider(this)[AnimeDetailFragmentViewModel::class.java]
+        ViewModelProvider(this, viewModelFactory)[AnimeDetailFragmentViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -39,6 +45,11 @@ class AnimeDetailsFragment : Fragment() {
             binding.mtvAnimeNameInRv.text = response.data.attributes.canonicalTitle
             binding.mivAnimeImageInRv.load(response.data.attributes.posterImage.medium)
         }
+    }
+
+    override fun onAttach(context: Context) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
     }
 
     override fun onDestroyView() {
