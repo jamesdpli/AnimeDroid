@@ -1,5 +1,6 @@
 package com.example.animedroid.ui.views
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,18 +9,22 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.animedroid.data.responses.Data
+import com.example.animedroid.data.response.NetworkAnimeList.Data
 import com.example.animedroid.databinding.FragmentAnimeListBinding
 import com.example.animedroid.ui.adapters.AnimeListAdapter
 import com.example.animedroid.ui.viewmodels.AnimeListFragmentViewModel
+import com.example.animedroid.ui.viewmodels.ViewModelFactory
+import dagger.android.support.AndroidSupportInjection
+import javax.inject.Inject
 
 class AnimeListFragment : Fragment() {
 
     private var _binding: FragmentAnimeListBinding? = null
     private val binding get() = _binding!!
 
+    @Inject lateinit var viewModelFactory: ViewModelFactory
     private val viewModel: AnimeListFragmentViewModel by lazy {
-        ViewModelProvider(this)[AnimeListFragmentViewModel::class.java]
+        ViewModelProvider(this, viewModelFactory)[AnimeListFragmentViewModel::class.java]
     }
 
     private val animeListAdapter = AnimeListAdapter { anime -> adapterOnClick(anime) }
@@ -55,6 +60,11 @@ class AnimeListFragment : Fragment() {
                 anime.id
             )
         )
+    }
+
+    override fun onAttach(context: Context) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
     }
 
     override fun onDestroyView() {
