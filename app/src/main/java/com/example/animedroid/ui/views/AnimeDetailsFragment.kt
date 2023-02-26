@@ -1,21 +1,19 @@
 package com.example.animedroid.ui.views
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.animedroid.databinding.FragmentAnimeDetailsBinding
 import com.example.animedroid.ui.viewmodels.AnimeDetailFragmentViewModel
 import com.example.animedroid.ui.viewmodels.ViewModelFactory
-import dagger.android.support.AndroidSupportInjection
+import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class AnimeDetailsFragment : Fragment() {
+class AnimeDetailsFragment : DaggerFragment() {
 
     private val safeArgs: AnimeDetailsFragmentArgs by navArgs()
 
@@ -45,11 +43,6 @@ class AnimeDetailsFragment : Fragment() {
             binding.mtvAnimeNameInRv.text = response.data.attributes.canonicalTitle
             binding.mivAnimeImageInRv.load(response.data.attributes.posterImage.medium)
         }
-    }
-
-    override fun onAttach(context: Context) {
-        AndroidSupportInjection.inject(this)
-        super.onAttach(context)
     }
 
     override fun onDestroyView() {

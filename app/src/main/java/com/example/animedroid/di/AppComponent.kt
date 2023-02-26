@@ -1,8 +1,10 @@
 package com.example.animedroid.di
 
 import com.example.animedroid.ui.AnimeApplication
+import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
+import dagger.android.AndroidInjector
 
 @Component(
     modules = [
@@ -14,7 +16,14 @@ import dagger.android.AndroidInjectionModule
         ViewModelModule::class
     ]
 )
-interface AppComponent {
+interface AppComponent : AndroidInjector<AnimeApplication> {
+    override fun inject(animeApplication: AnimeApplication)
 
-    fun inject(animeApplication: AnimeApplication): AnimeApplication
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        fun application(application: AnimeApplication): Builder
+
+        fun build(): AppComponent
+    }
 }
