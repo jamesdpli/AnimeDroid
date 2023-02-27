@@ -8,8 +8,6 @@ import dagger.android.AndroidInjectionModule
     modules = [
         AndroidInjectionModule::class,
         AnimeActivityModule::class,
-        AnimeListFragmentModule::class,
-        AnimeDetailsFragmentModule::class,
         NetworkModule::class,
         ViewModelModule::class
     ]

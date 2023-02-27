@@ -7,6 +7,11 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class AnimeActivityModule {
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(
+        modules = [
+            AnimeListFragmentBuildersModule::class,
+            AnimeDetailsFragmentBuildersModule::class
+        ]
+    )
     abstract fun inject(): AnimeActivity
 }

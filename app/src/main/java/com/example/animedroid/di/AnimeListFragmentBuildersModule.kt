@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
 @Module
-abstract class AnimeListFragmentModule {
+abstract class AnimeListFragmentBuildersModule {
 
     @ContributesAndroidInjector
     abstract fun inject(): AnimeListFragment
