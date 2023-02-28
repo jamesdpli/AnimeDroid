@@ -7,11 +7,11 @@ import javax.inject.Inject
 
 class AnimeRepository @Inject constructor(private val animeApi: AnimeService) {
 
-    suspend fun getAnimes(): Response<NetworkAnimeList> {
-        return animeApi.getAnimes()
-    }
-
     suspend fun getAnimeById(animeId: String): Response<NetworkAnime> {
         return animeApi.getAnimeById(animeId)
+    }
+
+    suspend fun getPagedAnimeList(offset: Int): Response<NetworkAnimeList> {
+        return animeApi.getPagedAnimeList(offset)
     }
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.animedroid.data.response.NetworkAnimeList.Data
@@ -13,6 +14,7 @@ import com.example.animedroid.ui.adapters.AnimeListAdapter
 import com.example.animedroid.ui.viewmodels.AnimeListFragmentViewModel
 import com.example.animedroid.ui.viewmodels.ViewModelFactory
 import dagger.android.support.DaggerFragment
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class AnimeListFragment : DaggerFragment() {
@@ -46,9 +48,11 @@ class AnimeListFragment : DaggerFragment() {
     }
 
     private fun setUpObserver() {
-        viewModel.getAnimes()
-        viewModel.animeLiveData.observe(viewLifecycleOwner) { response ->
-            animeListAdapter.submitList(response.data)
+        viewModel.pagedAnimeList.observe(viewLifecycleOwner) {
+            pagedAnimeData ->
+            lifecycleScope.launch {
+                animeListAdapter.submitData(pagedAnimeData)
+            }
         }
     }
 
