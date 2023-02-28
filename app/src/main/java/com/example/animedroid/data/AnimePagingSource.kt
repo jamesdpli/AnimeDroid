@@ -2,7 +2,7 @@ package com.example.animedroid.data
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.animedroid.data.response.NetworkAnimeList
+import com.example.animedroid.data.responses.NetworkAnimeList
 import javax.inject.Inject
 
 class AnimePagingSource @Inject constructor(

@@ -1,4 +1,4 @@
-package com.example.animedroid.ui.views
+package com.example.animedroid.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.animedroid.data.response.NetworkAnimeList.Data
+import com.example.animedroid.data.responses.NetworkAnimeList.Data
 import com.example.animedroid.databinding.FragmentAnimeListBinding
 import com.example.animedroid.ui.adapters.AnimeListAdapter
 import com.example.animedroid.ui.viewmodels.AnimeListFragmentViewModel

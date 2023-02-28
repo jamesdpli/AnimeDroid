@@ -1,9 +1,7 @@
-package com.example.animedroid.data.response
+package com.example.animedroid.data.responses
 
-data class NetworkAnimeList(
-    val `data`: List<Data>,
-    val links: Links,
-    val meta: Meta
+data class NetworkAnime(
+    val `data`: Data
 ) {
     data class Data(
         val attributes: Attributes,
@@ -38,7 +36,7 @@ data class NetworkAnimeList(
             val status: String,
             val subtype: String,
             val synopsis: String,
-            val tba: String,
+            val tba: Any,
             val titles: Titles,
             val totalLength: Int,
             val updatedAt: String,
@@ -143,7 +141,6 @@ data class NetworkAnimeList(
             data class Titles(
                 val en: String,
                 val en_jp: String,
-                val en_us: String,
                 val ja_jp: String
             )
         }
@@ -315,14 +312,4 @@ data class NetworkAnimeList(
             }
         }
     }
-
-    data class Links(
-        val first: String,
-        val last: String,
-        val next: String
-    )
-
-    data class Meta(
-        val count: Int
-    )
 }

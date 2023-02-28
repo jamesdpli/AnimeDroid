@@ -1,7 +1,7 @@
 package com.example.animedroid.data
 
-import com.example.animedroid.data.response.NetworkAnime
-import com.example.animedroid.data.response.NetworkAnimeList
+import com.example.animedroid.data.responses.NetworkAnime
+import com.example.animedroid.data.responses.NetworkAnimeList
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

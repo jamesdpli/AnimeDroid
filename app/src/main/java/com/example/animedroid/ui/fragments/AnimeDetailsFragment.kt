@@ -1,4 +1,4 @@
-package com.example.animedroid.ui.views
+package com.example.animedroid.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

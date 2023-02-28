@@ -1,6 +1,6 @@
 package com.example.animedroid.di
 
-import com.example.animedroid.ui.views.AnimeDetailsFragment
+import com.example.animedroid.ui.fragments.AnimeDetailsFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

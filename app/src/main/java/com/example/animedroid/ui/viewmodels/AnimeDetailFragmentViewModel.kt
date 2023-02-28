@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.animedroid.data.AnimeRepository
-import com.example.animedroid.data.response.NetworkAnime
+import com.example.animedroid.data.responses.NetworkAnime
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

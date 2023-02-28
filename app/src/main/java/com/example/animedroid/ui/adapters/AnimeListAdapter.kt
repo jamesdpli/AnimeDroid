@@ -6,7 +6,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.animedroid.data.response.NetworkAnimeList.Data
+import com.example.animedroid.data.responses.NetworkAnimeList.Data
 import com.example.animedroid.databinding.AnimeRecyclerViewItemBinding
 
 class AnimeListAdapter(private val onClick: (Data) -> Unit) :
