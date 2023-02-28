@@ -42,8 +42,6 @@ class AnimeListFragment : DaggerFragment() {
     }
 
     private fun setUpUI() {
-        binding.rvAnimeList.layoutManager =
-            StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
         binding.rvAnimeList.adapter = animeListAdapter
     }
 
