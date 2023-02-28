@@ -2,15 +2,15 @@ package com.example.animedroid.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.animedroid.data.response.NetworkAnimeList.Data
 import com.example.animedroid.databinding.AnimeRecyclerViewItemBinding
 
 class AnimeListAdapter(private val onClick: (Data) -> Unit) :
-    ListAdapter<Data, AnimeListAdapter.AnimeViewHolder>(AnimeDiffCallback) {
+    PagingDataAdapter<Data, AnimeListAdapter.AnimeViewHolder>(AnimeDiffCallback) {
 
     inner class AnimeViewHolder(
         val binding: AnimeRecyclerViewItemBinding
@@ -46,7 +46,7 @@ class AnimeListAdapter(private val onClick: (Data) -> Unit) :
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: AnimeViewHolder, position: Int) {
         val anime = getItem(position)
-        viewHolder.bind(anime)
+        viewHolder.bind(anime!!)
     }
 
     object AnimeDiffCallback : DiffUtil.ItemCallback<Data>() {
