@@ -20,8 +20,6 @@ baseRecyclerViewExample -> Shows the Anime list with the stock RecyclerView impl
 
 passingDataWithBundle -> Shows passing data between two screens with the android os bundle rather than using safeArgs.
 
-This is a work in progress
-
 ```
 Copyright 2023 James Dudhi-Price
 
