@@ -1,18 +1,12 @@
 # AnimeDroid
 
-Architecture
+Architecture:
 
-Why Clean Architecture?
-
-S.O.L.I.D Principles
-
-Layers
+Layers:
 
 Demo Screenshots
 
-Tech Stacks
-
-What each branch demonstartes:
+Libraries used:
 
 Braches:
 
