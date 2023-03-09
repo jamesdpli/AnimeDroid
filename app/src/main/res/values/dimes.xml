@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="marginTop">10dp</dimen>
+    <dimen name="marginStart">5dp</dimen>
+    <dimen name="cornerRadius">5dp</dimen>
+    <dimen name="cardElevation">5dp</dimen>
+    <dimen name="animeTitleSize">20sp</dimen>
+</resources>

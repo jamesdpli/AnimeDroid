@@ -4,14 +4,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mcvAnime"
+    android:id="@+id/animeCardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:checkable="true"
     android:clickable="true"
     android:focusable="true"
-    app:cardCornerRadius="5dp"
-    app:cardElevation="5dp"
+    app:cardCornerRadius="@dimen/cornerRadius"
+    app:cardElevation="@dimen/cardElevation"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/mivAnimeImageInRv"
+            android:id="@+id/animeImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -27,49 +27,60 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@drawable/ic_launcher_background" />
 
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/animeName"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="@dimen/animeTitleSize"
+            app:layout_constraintBottom_toTopOf="@+id/animeStartDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/animeImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Bleach" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/mtvAnimeNameInRv"
+            android:id="@+id/animeStartDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            app:layout_constraintStart_toEndOf="@id/mivAnimeImageInRv"
-            app:layout_constraintTop_toTopOf="@id/mivAnimeImageInRv"
-            tools:text="hello" />
+            app:layout_constraintBottom_toTopOf="@+id/animeEndDate"
+            app:layout_constraintEnd_toEndOf="@id/animeName"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/animeName"
+            app:layout_constraintTop_toBottomOf="@+id/animeName"
+            tools:text="Started: 02/03/1999" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/mtvAgeRatingInRv"
+            android:id="@+id/animeEndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/animeEpisodeCount"
+            app:layout_constraintEnd_toEndOf="@id/animeStartDate"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/animeStartDate"
+            app:layout_constraintTop_toBottomOf="@+id/animeStartDate"
+            tools:text="Ended: 10/10/1999" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/animeEpisodeCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/animeEndDate"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/animeEndDate"
+            app:layout_constraintTop_toBottomOf="@+id/animeEndDate"
+            tools:text="Episode Count: 100000" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/animeAgeRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="Rated R" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/mtvStartDateInRv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:layout_constraintStart_toEndOf="@id/mivAnimeImageInRv"
-            app:layout_constraintTop_toBottomOf="@+id/mtvAnimeNameInRv"
-            tools:text="Rated R" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/mtvEndDateInRv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/mivAnimeImageInRv"
-            app:layout_constraintTop_toBottomOf="@+id/mtvStartDateInRv"
-            tools:text="Rated R" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/mtvEpisodeCountInRv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/mivAnimeImageInRv"
-            app:layout_constraintTop_toBottomOf="@+id/mtvEndDateInRv"
-            tools:text="Rated R" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

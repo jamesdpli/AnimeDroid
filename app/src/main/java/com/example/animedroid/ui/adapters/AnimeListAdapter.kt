@@ -22,12 +22,12 @@ class AnimeListAdapter(private val onClick: (Data) -> Unit) :
             val animeAttributes = animeData.attributes
 
             with(binding) {
-                mtvAnimeNameInRv.text = animeAttributes.canonicalTitle
-                mivAnimeImageInRv.load(animeAttributes.posterImage.small)
-                mtvStartDateInRv.text = "Start Date: ${animeAttributes.startDate}"
-                mtvEndDateInRv.text = "End Date: ${animeAttributes.endDate}"
-                mtvEpisodeCountInRv.text = "Episode Count: ${animeAttributes.episodeCount}"
-                mtvAgeRatingInRv.text = "Rated: ${animeAttributes.ageRating}"
+                animeName.text = animeAttributes.canonicalTitle
+                animeImage.load(animeAttributes.posterImage.small)
+                animeStartDate.text = "Start Date: ${animeAttributes.startDate}"
+                animeEndDate.text = "End Date: ${animeAttributes.endDate}"
+                animeEpisodeCount.text = "Episode Count: ${animeAttributes.episodeCount}"
+                animeAgeRating.text = "Rated: ${animeAttributes.ageRating}"
                 root.setOnClickListener() {
                     onClick(animeData)
                 }
