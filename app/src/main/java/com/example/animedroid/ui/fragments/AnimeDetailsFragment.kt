@@ -39,9 +39,9 @@ class AnimeDetailsFragment : DaggerFragment() {
     private fun setUpUI() {
         viewModel.getAnimeById(animeId = safeArgs.animeId)
         viewModel.animeDetailLiveData.observe(viewLifecycleOwner) { response ->
-            binding.tvAnimeDescription.text = response.data.attributes.description
-            binding.mtvAnimeNameInRv.text = response.data.attributes.canonicalTitle
-            binding.mivAnimeImageInRv.load(response.data.attributes.posterImage.medium)
+            binding.animeDetailsName.text = response.data.attributes.canonicalTitle
+            binding.animeDetailsDescription.text = response.data.attributes.description
+            binding.animeDetailsImage.load(response.data.attributes.posterImage.large)
         }
     }
 
