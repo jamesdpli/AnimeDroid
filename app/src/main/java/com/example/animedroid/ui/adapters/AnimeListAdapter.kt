@@ -1,6 +1,5 @@
 package com.example.animedroid.ui.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isGone
@@ -42,7 +41,6 @@ class AnimeListAdapter(private val onClick: (Data) -> Unit) :
                         animeEpisodeCount.isGone = false
                         animeAgeRating.isGone = false
                         animeViewHolderProgressIndicator.isGone = true
-                        Log.d("YUPYUP", "height: ${animeViewHolderProgressIndicator.height} weight: ${animeViewHolderProgressIndicator.width}")
                     }
                 }
                 root.setOnClickListener {
