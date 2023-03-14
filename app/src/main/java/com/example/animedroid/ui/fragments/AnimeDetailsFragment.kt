@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import coil.load
@@ -39,9 +40,17 @@ class AnimeDetailsFragment : DaggerFragment() {
     private fun setUpUI() {
         viewModel.getAnimeById(animeId = safeArgs.animeId)
         viewModel.animeDetailLiveData.observe(viewLifecycleOwner) { response ->
-            binding.animeDetailsName.text = response.data.attributes.canonicalTitle
-            binding.animeDetailsDescription.text = response.data.attributes.description
-            binding.animeDetailsImage.load(response.data.attributes.posterImage.large)
+            binding.animeDetailsName.also { it.isGone = true }.text =
+                response.data.attributes.canonicalTitle
+            binding.animeDetailsDescription.also { it.isGone = true }.text =
+                response.data.attributes.description
+            binding.animeDetailsImage.load(response.data.attributes.posterImage.large) {
+                listener { request, result ->
+                    binding.animeDetailsProgressIndicator.isGone = true
+                    binding.animeDetailsName.isGone = false
+                    binding.animeDetailsDescription.isGone = false
+                }
+            }
         }
     }
 

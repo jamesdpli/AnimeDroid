@@ -1,7 +1,9 @@
 package com.example.animedroid.ui.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +15,7 @@ class AnimeListAdapter(private val onClick: (Data) -> Unit) :
     PagingDataAdapter<Data, AnimeListAdapter.AnimeViewHolder>(AnimeDiffCallback) {
 
     inner class AnimeViewHolder(
-        val binding: AnimeRecyclerViewItemBinding
+        private val binding: AnimeRecyclerViewItemBinding
     ) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -22,13 +24,28 @@ class AnimeListAdapter(private val onClick: (Data) -> Unit) :
             val animeAttributes = animeData.attributes
 
             with(binding) {
-                animeName.text = animeAttributes.canonicalTitle
-                animeImage.load(animeAttributes.posterImage.small)
-                animeStartDate.text = "Start Date: ${animeAttributes.startDate}"
-                animeEndDate.text = "End Date: ${animeAttributes.endDate}"
-                animeEpisodeCount.text = "Episode Count: ${animeAttributes.episodeCount}"
-                animeAgeRating.text = "Rated: ${animeAttributes.ageRating}"
-                root.setOnClickListener() {
+                animeName.also { it.isGone = true }.text =
+                    animeAttributes.canonicalTitle
+                animeStartDate.also { it.isGone = true }.text =
+                    "Start Date: ${animeAttributes.startDate}"
+                animeEndDate.also { it.isGone = true }.text =
+                    "End Date: ${animeAttributes.endDate}"
+                animeEpisodeCount.also { it.isGone = true }.text =
+                    "Episode Count: ${animeAttributes.episodeCount}"
+                animeAgeRating.also { it.isGone = true }.text =
+                    "Rated: ${animeAttributes.ageRating}"
+                animeImage.load(animeAttributes.posterImage.small) {
+                    listener { _, _ ->
+                        animeName.isGone = false
+                        animeStartDate.isGone = false
+                        animeEndDate.isGone = false
+                        animeEpisodeCount.isGone = false
+                        animeAgeRating.isGone = false
+                        animeViewHolderProgressIndicator.isGone = true
+                        Log.d("YUPYUP", "height: ${animeViewHolderProgressIndicator.height} weight: ${animeViewHolderProgressIndicator.width}")
+                    }
+                }
+                root.setOnClickListener {
                     onClick(animeData)
                 }
             }
