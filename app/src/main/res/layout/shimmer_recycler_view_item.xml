@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/shimmerAnimeCardView"
+    android:layout_width="match_parent"
+    android:layout_height="153dp"
+    android:backgroundTint="@color/white"
+    android:checkable="true"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="@dimen/cornerRadius"
+    app:cardElevation="@dimen/cardElevation"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/shimmerAnimeImage"
+            android:layout_width="109dp"
+            android:layout_height="153dp"
+            android:background="#DDD"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+             />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/shimmerTextView"
+            android:layout_width="240dp"
+            android:layout_height="80dp"
+            android:background="#DDD"
+            android:textAlignment="center"
+            android:textSize="@dimen/animeTitleSize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/shimmerAnimeImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/shimmerAnimeAgeRating"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:background="#DDD"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+             />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
+
+
