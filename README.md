@@ -1,6 +1,10 @@
 # AnimeDroid
 
-Demo Screenshots:
+## **Demo:**
+
+| Mode         | Anime List   | Anime Details |
+|--------------|--------------|---------------|
+| Place holder | Place holder | Place holder  |
 
 Architecture:
 
@@ -21,24 +25,27 @@ Layers:
 | updateDaggerImplementation | https://github.com/jamesdpli/AnimeDroid/pull/3 | Makes use of DaggerFragment, DaggerAppCompatActivity etc        |
 
 ## **Libraries used:**
+- [Jetpack](https://developer.android.com/jetpack)
+    - [Android KTX](https://developer.android.com/kotlin/ktx.html) 
+    - [AndroidX](https://developer.android.com/jetpack/androidx) 
+    - [ViewBinding](https://developer.android.com/topic/libraries/view-binding)
+    - [Navigation](https://developer.android.com/jetpack/androidx/releases/navigation) 
+    - [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) 
+    - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
+    - [Paging3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
+    - [RecyclerView](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView)
+- [Dagger Android](https://dagger.dev/dev-guide/android.html) 
+- [Retrofit](https://square.github.io/retrofit/) 
+- [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) 
+- [Flow](https://developer.android.com/kotlin/flow) 
+- [Material Design](https://material.io/develop/android/docs/getting-started/) 
+- [Coil](https://github.com/coil-kt/coil) 
+- [Shimmer](https://facebook.github.io/shimmer-android/) 
 
-| Library                 | Link                                                                                                   |
-|-------------------------|--------------------------------------------------------------------------------------------------------|
-| Retrofit                | https://square.github.io/retrofit/                                                                     |
-| Retrofit Converter Gson | https://github.com/square/retrofit/tree/master/retrofit-converters/gson                                |
-| Coil                    | https://coil-kt.github.io/coil/                                                                        |
-| Ktx                     | https://developer.android.com/kotlin/ktx#:~:text=Android%20KTX%20is%20a%20set,Extension%20functions    |
-| Material                | https://github.com/material-components/material-components-android/blob/master/docs/getting-started.md |
-| Jetpack Navigation      | https://developer.android.com/guide/navigation/navigation-getting-started                              |
-| Dagger Android          | https://dagger.dev/dev-guide/android.html                                                              |
-| Paging 3                | https://developer.android.com/topic/libraries/architecture/paging/v3-overview                          |
-| Shimmer                 | https://facebook.github.io/shimmer-android/                                                            |
-
-## ** Credits **
+## **Credits**
 | API   | Description                                                                                                                                                                                                            | Link To Docs                   |
 |-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
-| Kitsu | Kitsu is a modern anime discovery platform that helps you track the anime you're watching, discover new anime and socialize with other fans. With the Kitsu API you can do everything the client can do and much more. | https://kitsu.docs.apiary.io/# | |
-
+| Kitsu | Kitsu is a modern anime discovery platform that helps you track the anime you're watching, discover new anime and socialize with other fans. With the Kitsu API you can do everything the client can do and much more. | https://kitsu.docs.apiary.io/# | 
 
 
 ```
