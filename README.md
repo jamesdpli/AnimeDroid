@@ -1,4 +1,4 @@
-# AnimeDroid
+# AnimeDroid ( This project is a work in progress)
 
 ## **Demo:**
 
