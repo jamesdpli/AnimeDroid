@@ -10,6 +10,7 @@ Libraries used:
 
 Braches:
 
+
 baseRecyclerViewExample -> Shows the Anime list with the stock RecyclerView implementation, later in commit "Refacor RecyclerView into ListAdapter" this is changed to ListAdapter.
 
 passingDataWithBundle -> Shows passing data between two screens with the android os bundle rather than using safeArgs.
