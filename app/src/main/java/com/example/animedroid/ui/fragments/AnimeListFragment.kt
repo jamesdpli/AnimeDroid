@@ -53,7 +53,6 @@ class AnimeListFragment : DaggerFragment() {
     private fun observePagedData() {
         viewModel.pagedAnimeList.observe(viewLifecycleOwner) {
             lifecycleScope.launch {
-                delay(2000)
                 animeListAdapter.submitData(pagingData = it)
             }
         }
