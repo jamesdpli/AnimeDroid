@@ -21,12 +21,6 @@ Branches And Related Pull Requests:
 | showLoadingStateInUi       | https://github.com/jamesdpli/AnimeDroid/pull/7 | Adds Circular spinners to show load state                       |
 | styleUpdate                | https://github.com/jamesdpli/AnimeDroid/pull/6 | Basic update to xml                                             |
 | updateDaggerImplementation | https://github.com/jamesdpli/AnimeDroid/pull/3 | Makes use of DaggerFragment, DaggerAppCompatActivity etc        |
-
-
-baseRecyclerViewExample -> Shows the Anime list with the stock RecyclerView implementation, later in commit "Refacor RecyclerView into ListAdapter" this is changed to ListAdapter.
-
-passingDataWithBundle -> Shows passing data between two screens with the android os bundle rather than using safeArgs.
-
 ```
 Copyright 2023 James Dudhi-Price
 
