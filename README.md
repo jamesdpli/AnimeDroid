@@ -6,9 +6,22 @@ Layers:
 
 Demo Screenshots
 
-Libraries used:
+## **Libraries used:**
 
-Branches And Related Pull Requests: 
+| Library                 | Link                                                                                                   |
+|-------------------------|--------------------------------------------------------------------------------------------------------|
+| Retrofit                | https://square.github.io/retrofit/                                                                     |
+| Retrofit Converter Gson | https://github.com/square/retrofit/tree/master/retrofit-converters/gson                                |
+| Coil                    | https://coil-kt.github.io/coil/                                                                        |
+| Ktx                     | https://developer.android.com/kotlin/ktx#:~:text=Android%20KTX%20is%20a%20set,Extension%20functions    |
+| Material                | https://github.com/material-components/material-components-android/blob/master/docs/getting-started.md |
+| Jetpack Navigation      | https://developer.android.com/guide/navigation/navigation-getting-started                              |
+| Dagger Android          | https://dagger.dev/dev-guide/android.html                                                              |
+| Paging 3                | https://developer.android.com/topic/libraries/architecture/paging/v3-overview                          |
+| Shimmer                 | https://facebook.github.io/shimmer-android/                                                            |
+
+
+## **Branches And Related Pull Requests:**
 
 | Branch Name                | Related Pull Request                           | Description                                                     |
 |----------------------------|------------------------------------------------|-----------------------------------------------------------------|
