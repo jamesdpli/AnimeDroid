@@ -43,9 +43,9 @@ Layers:
 - [Shimmer](https://facebook.github.io/shimmer-android/) 
 
 ## **Credits**
-| API   | Description                                                                                                                                                                                                            | Link To Docs                   |
+| Credits   | Description                                                                                                                                                                                                            | Link To Docs                   |
 |-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
-| Credits | Kitsu is a modern anime discovery platform that helps you track the anime you're watching, discover new anime and socialize with other fans. With the Kitsu API you can do everything the client can do and much more. | https://kitsu.docs.apiary.io/# | 
+| Kitsu | Kitsu is a modern anime discovery platform that helps you track the anime you're watching, discover new anime and socialize with other fans. With the Kitsu API you can do everything the client can do and much more. | https://kitsu.docs.apiary.io/# | 
 
 
 ```
