@@ -15,6 +15,7 @@ import com.example.animedroid.ui.adapters.AnimeListAdapter
 import com.example.animedroid.ui.viewmodels.AnimeListFragmentViewModel
 import com.example.animedroid.ui.viewmodels.ViewModelFactory
 import dagger.android.support.DaggerFragment
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -52,6 +53,7 @@ class AnimeListFragment : DaggerFragment() {
     private fun observePagedData() {
         viewModel.pagedAnimeList.observe(viewLifecycleOwner) {
             lifecycleScope.launch {
+                delay(2000)
                 animeListAdapter.submitData(pagingData = it)
             }
         }
@@ -59,7 +61,7 @@ class AnimeListFragment : DaggerFragment() {
 
     private fun observeLoadState() = lifecycleScope.launch {
         animeListAdapter.loadStateFlow.collectLatest {
-            binding.recyclerViewProgressBar.isVisible = it.refresh is LoadState.Loading
+            binding.shimmerFrameLayout.isVisible = it.refresh is LoadState.Loading
         }
     }
 
