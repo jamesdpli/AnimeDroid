@@ -50,12 +50,8 @@ class AnimeListFragment : DaggerFragment() {
         binding.rvAnimeList.adapter = animeListAdapter
     }
 
-    private fun observePagedData() {
-        viewModel.pagedAnimeList.observe(viewLifecycleOwner) {
-            lifecycleScope.launch {
-                animeListAdapter.submitData(pagingData = it)
-            }
-        }
+    private fun observePagedData() = viewModel.pagedAnimeList.observe(viewLifecycleOwner) {
+            listData -> animeListAdapter.submitData(lifecycle, listData)
     }
 
     private fun observeLoadState() = lifecycleScope.launch {
