@@ -1,25 +1,24 @@
 package com.example.animedroid.ui.viewmodels
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.*
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.cachedIn
+import androidx.paging.liveData
 import com.example.animedroid.data.AnimePagingSource
 import com.example.animedroid.data.AnimeRepository
-import com.example.animedroid.data.responses.NetworkAnimeList
-import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 class AnimeListFragmentViewModel @Inject constructor(private val repository: AnimeRepository) :
     ViewModel() {
 
-    fun getPagedAnimeData(): LiveData<PagingData<NetworkAnimeList.Data>> {
-        return Pager(
+        val pagedAnimeData =  Pager(
             PagingConfig(pageSize = 20)
         ) {
             AnimePagingSource(repository)
         }
             .liveData
             .cachedIn(viewModelScope)
-    }
+
 }

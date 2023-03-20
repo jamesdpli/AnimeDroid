@@ -45,8 +45,8 @@ class AnimeDetailsFragment : DaggerFragment() {
             binding.animeDetailsDescription.also { it.isGone = true }.text =
                 response.data.attributes.description
             binding.animeDetailsImage.load(response.data.attributes.posterImage.large) {
-                listener { request, result ->
-                    binding.animeDetailsProgressIndicator.isGone = true
+                listener { _, _ ->
+                    binding.shimmerFragmentAnimeDetails.isGone = true
                     binding.animeDetailsName.isGone = false
                     binding.animeDetailsDescription.isGone = false
                 }
