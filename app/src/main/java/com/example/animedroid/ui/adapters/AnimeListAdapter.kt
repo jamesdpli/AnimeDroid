@@ -23,16 +23,11 @@ class AnimeListAdapter(private val onClick: (Data) -> Unit) :
             val animeAttributes = animeData.attributes
 
             with(binding) {
-                animeName.also { it.isGone = true }.text =
-                    animeAttributes.canonicalTitle
-                animeStartDate.also { it.isGone = true }.text =
-                    "Start Date: ${animeAttributes.startDate}"
-                animeEndDate.also { it.isGone = true }.text =
-                    "End Date: ${animeAttributes.endDate}"
-                animeEpisodeCount.also { it.isGone = true }.text =
-                    "Episode Count: ${animeAttributes.episodeCount}"
-                animeAgeRating.also { it.isGone = true }.text =
-                    "Rated: ${animeAttributes.ageRating}"
+                animeName.also { it.isGone = true }.text = animeAttributes.canonicalTitle
+                animeStartDate.also { it.isGone = true }.text = "Start Date: ${animeAttributes.startDate}"
+                animeEndDate.also { it.isGone = true }.text = "End Date: ${animeAttributes.endDate}"
+                animeEpisodeCount.also { it.isGone = true }.text = "Episode Count: ${animeAttributes.episodeCount}"
+                animeAgeRating.also { it.isGone = true }.text = "Rated: ${animeAttributes.ageRating}"
                 animeImage.load(animeAttributes.posterImage.small) {
                     listener { _, _ ->
                         animeName.isGone = false
@@ -40,7 +35,7 @@ class AnimeListAdapter(private val onClick: (Data) -> Unit) :
                         animeEndDate.isGone = false
                         animeEpisodeCount.isGone = false
                         animeAgeRating.isGone = false
-                        animeViewHolderProgressIndicator.isGone = true
+                        viewHolderShimmerItem.isGone = true
                     }
                 }
                 root.setOnClickListener {
