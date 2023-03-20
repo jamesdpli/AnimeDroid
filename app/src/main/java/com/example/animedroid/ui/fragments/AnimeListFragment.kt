@@ -55,7 +55,7 @@ class AnimeListFragment : DaggerFragment() {
     }
 
     private fun observeLoadState() = lifecycleScope.launch {
-        animeListAdapter.loadStateFlow.collectLatest {
+        animeListAdapter.addLoadStateListener {
             binding.shimmerFrameLayout.isVisible = it.refresh is LoadState.Loading
         }
     }
