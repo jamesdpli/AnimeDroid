@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.example.animedroid.data.responses.NetworkAnimeList.Data
@@ -15,9 +14,6 @@ import com.example.animedroid.ui.adapters.AnimeListAdapter
 import com.example.animedroid.ui.viewmodels.AnimeListFragmentViewModel
 import com.example.animedroid.ui.viewmodels.ViewModelFactory
 import dagger.android.support.DaggerFragment
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class AnimeListFragment : DaggerFragment() {
@@ -50,14 +46,13 @@ class AnimeListFragment : DaggerFragment() {
         binding.rvAnimeList.adapter = animeListAdapter
     }
 
-    private fun observePagedData() = viewModel.pagedAnimeList.observe(viewLifecycleOwner) {
+    private fun observePagedData() = viewModel.getPagedAnimeData().observe(viewLifecycleOwner) {
             listData -> animeListAdapter.submitData(lifecycle, listData)
-    }
-
-    private fun observeLoadState() = lifecycleScope.launch {
-        animeListAdapter.addLoadStateListener {
-            binding.shimmerFrameLayout.isVisible = it.refresh is LoadState.Loading
         }
+
+    private fun observeLoadState() = animeListAdapter.addLoadStateListener {
+        binding.shimmerFrameLayout.isVisible = it.refresh is LoadState.Loading
+
     }
 
     private fun adapterOnClick(anime: Data) {
