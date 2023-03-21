@@ -1,5 +1,6 @@
 package com.example.animedroid.ui.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isGone
@@ -7,10 +8,11 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.animedroid.R
 import com.example.animedroid.data.responses.NetworkAnimeList.Data
 import com.example.animedroid.databinding.AnimeRecyclerViewItemBinding
 
-class AnimeListAdapter(private val onClick: (Data) -> Unit) :
+class AnimeListAdapter(private val context: Context, private val onClick: (Data) -> Unit) :
     PagingDataAdapter<Data, AnimeListAdapter.AnimeViewHolder>(AnimeDiffCallback) {
 
     inner class AnimeViewHolder(
@@ -24,10 +26,10 @@ class AnimeListAdapter(private val onClick: (Data) -> Unit) :
 
             with(binding) {
                 animeName.also { it.isGone = true }.text = animeAttributes.canonicalTitle
-                animeStartDate.also { it.isGone = true }.text = "Start Date: ${animeAttributes.startDate}"
-                animeEndDate.also { it.isGone = true }.text = "End Date: ${animeAttributes.endDate}"
-                animeEpisodeCount.also { it.isGone = true }.text = "Episode Count: ${animeAttributes.episodeCount}"
-                animeAgeRating.also { it.isGone = true }.text = "Rated: ${animeAttributes.ageRating}"
+                animeStartDate.also { it.isGone = true }.text = context.getString(R.string.start_date, animeAttributes.startDate)
+                animeEndDate.also { it.isGone = true }.text = context.getString(R.string.end_date, animeAttributes.endDate)
+                animeEpisodeCount.also { it.isGone = true }.text = context.getString(R.string.episode_count, animeAttributes.episodeCount)
+                animeAgeRating.also { it.isGone = true }.text = context.getString(R.string.age_rating, animeAttributes.ageRating)
                 animeImage.load(animeAttributes.posterImage.small) {
                     listener { _, _ ->
                         animeName.isGone = false
