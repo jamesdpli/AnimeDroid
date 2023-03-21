@@ -1,6 +1,6 @@
 package com.example.animedroid.di
 
-import com.example.animedroid.ui.AnimeApplication
+import com.example.animedroid.AnimeApplication
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule

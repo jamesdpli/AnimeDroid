@@ -1,4 +1,4 @@
-package com.example.animedroid.ui
+package com.example.animedroid
 
 import android.os.Bundle
 import androidx.navigation.NavController
@@ -7,7 +7,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.animedroid.R
 import com.example.animedroid.databinding.ActivityMainBinding
 import dagger.android.support.DaggerAppCompatActivity
 

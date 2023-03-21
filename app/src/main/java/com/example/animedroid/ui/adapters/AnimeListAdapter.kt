@@ -1,43 +1,42 @@
 package com.example.animedroid.ui.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isGone
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
+import com.example.animedroid.R
 import com.example.animedroid.data.responses.NetworkAnimeList.Data
 import com.example.animedroid.databinding.AnimeRecyclerViewItemBinding
 
-class AnimeListAdapter(private val onClick: (Data) -> Unit) :
+class AnimeListAdapter(private val context: Context, private val onClick: (Data) -> Unit) :
     PagingDataAdapter<Data, AnimeListAdapter.AnimeViewHolder>(AnimeDiffCallback) {
 
     inner class AnimeViewHolder(
         private val binding: AnimeRecyclerViewItemBinding
-    ) :
-        RecyclerView.ViewHolder(binding.root) {
-
+    ) : RecyclerView.ViewHolder(binding.root) {
         // Bind members
         fun bind(animeData: Data) {
             val animeAttributes = animeData.attributes
 
             with(binding) {
-                animeName.also { it.isGone = true }.text = animeAttributes.canonicalTitle
-                animeStartDate.also { it.isGone = true }.text = "Start Date: ${animeAttributes.startDate}"
-                animeEndDate.also { it.isGone = true }.text = "End Date: ${animeAttributes.endDate}"
-                animeEpisodeCount.also { it.isGone = true }.text = "Episode Count: ${animeAttributes.episodeCount}"
-                animeAgeRating.also { it.isGone = true }.text = "Rated: ${animeAttributes.ageRating}"
-                animeImage.load(animeAttributes.posterImage.small) {
-                    listener { _, _ ->
-                        animeName.isGone = false
-                        animeStartDate.isGone = false
-                        animeEndDate.isGone = false
-                        animeEpisodeCount.isGone = false
-                        animeAgeRating.isGone = false
-                        viewHolderShimmerItem.isGone = true
-                    }
-                }
+                animeName.text = animeAttributes.canonicalTitle
+
+                animeStartDate.text = context.getString(R.string.start_date, animeAttributes.startDate)
+
+                animeEndDate.text = context.getString(R.string.end_date, animeAttributes.endDate)
+
+                animeEpisodeCount.text = context.getString(R.string.episode_count, animeAttributes.episodeCount)
+
+                animeAgeRating.text = context.getString(R.string.age_rating, animeAttributes.ageRating)
+
+                image = animeData.attributes.posterImage
+                executePendingBindings()
+
+                viewHolderShimmerItem.isGone = true
+
                 root.setOnClickListener {
                     onClick(animeData)
                 }

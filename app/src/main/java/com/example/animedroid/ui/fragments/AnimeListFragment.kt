@@ -27,7 +27,11 @@ class AnimeListFragment : DaggerFragment() {
         ViewModelProvider(this, viewModelFactory)[AnimeListFragmentViewModel::class.java]
     }
 
-    private val animeListAdapter = AnimeListAdapter { anime -> adapterOnClick(anime) }
+    private val animeListAdapter by lazy {
+        AnimeListAdapter(requireContext()) {
+            anime -> adapterOnClick(anime)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

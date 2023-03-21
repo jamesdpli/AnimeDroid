@@ -1,4 +1,4 @@
-package com.example.animedroid.ui
+package com.example.animedroid
 
 import com.example.animedroid.di.DaggerAppComponent
 import dagger.android.AndroidInjector
