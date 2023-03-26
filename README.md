@@ -6,9 +6,15 @@
 |--------------|--------------|---------------|
 | Place holder | Place holder | Place holder  |
 
-Architecture:
+## **Architecture:**
+**Single-Activity Architecture**  - 
 
-Layers:
+**Model-View-ViewModel** -
+
+## **Package Structure:**
+![img.png](readMeAndOtherResources/img.png)
+
+## **Dependency Graph:**
 
 ## **Branches And Related Pull Requests:**
 
