@@ -8,6 +8,7 @@ import androidx.core.view.isGone
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import coil.load
+import com.example.animedroid.data.responses.NetworkAnime
 import com.example.animedroid.databinding.FragmentAnimeDetailsBinding
 import com.example.animedroid.ui.viewmodels.AnimeDetailFragmentViewModel
 import com.example.animedroid.ui.viewmodels.ViewModelFactory
@@ -21,7 +22,8 @@ class AnimeDetailsFragment : DaggerFragment() {
     private var _binding: FragmentAnimeDetailsBinding? = null
     private val binding get() = _binding!!
 
-    @Inject lateinit var viewModelFactory: ViewModelFactory
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
 
     private val viewModel: AnimeDetailFragmentViewModel by lazy {
         ViewModelProvider(this, viewModelFactory)[AnimeDetailFragmentViewModel::class.java]
@@ -33,23 +35,29 @@ class AnimeDetailsFragment : DaggerFragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentAnimeDetailsBinding.inflate(inflater, container, false)
-        setUpUI()
+        getAnimeById()
+        observeAnimeDetailsLiveData()
         return binding.root
     }
 
-    private fun setUpUI() {
+    private fun getAnimeById() {
         viewModel.getAnimeById(animeId = safeArgs.animeId)
-        viewModel.animeDetailLiveData.observe(viewLifecycleOwner) { response ->
-            binding.animeDetailsName.also { it.isGone = true }.text =
-                response.data.attributes.canonicalTitle
-            binding.animeDetailsDescription.also { it.isGone = true }.text =
-                response.data.attributes.description
-            binding.animeDetailsImage.load(response.data.attributes.posterImage.large) {
-                listener { _, _ ->
-                    binding.shimmerFragmentAnimeDetails.isGone = true
-                    binding.animeDetailsName.isGone = false
-                    binding.animeDetailsDescription.isGone = false
-                }
+    }
+
+    private fun observeAnimeDetailsLiveData() =  viewModel.animeDetailLiveData.observe(viewLifecycleOwner)  {
+        response -> bindLiveDataToUiElements(response)
+    }
+
+    private fun bindLiveDataToUiElements(response: NetworkAnime) {
+        binding.animeDetailsName.also { it.isGone = true }.text =
+            response.data.attributes.canonicalTitle
+        binding.animeDetailsDescription.also { it.isGone = true }.text =
+            response.data.attributes.description
+        binding.animeDetailsImage.load(response.data.attributes.posterImage.large) {
+            listener { _, _ ->
+                binding.shimmerFragmentAnimeDetails.isGone = true
+                binding.animeDetailsName.isGone = false
+                binding.animeDetailsDescription.isGone = false
             }
         }
     }
