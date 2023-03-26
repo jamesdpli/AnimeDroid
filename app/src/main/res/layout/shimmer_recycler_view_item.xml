@@ -11,6 +11,7 @@
     android:clickable="true"
     android:focusable="true"
     app:cardCornerRadius="@dimen/cornerRadius"
+    app:cardUseCompatPadding="true"
     app:cardElevation="@dimen/cardElevation">
 
     <androidx.constraintlayout.widget.ConstraintLayout
