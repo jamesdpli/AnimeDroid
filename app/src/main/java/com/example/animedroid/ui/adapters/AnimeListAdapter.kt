@@ -17,28 +17,20 @@ class AnimeListAdapter(private val context: Context, private val onClick: (Data)
 
     inner class AnimeViewHolder(
         private val binding: AnimeRecyclerViewItemBinding
-    ) :
-        RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         // Bind members
         fun bind(animeData: Data) {
             val animeAttributes = animeData.attributes
 
             with(binding) {
-                animeName.also { it.isGone = true }.text = animeAttributes.canonicalTitle
-                animeStartDate.also { it.isGone = true }.text = context.getString(R.string.start_date, animeAttributes.startDate)
-                animeEndDate.also { it.isGone = true }.text = context.getString(R.string.end_date, animeAttributes.endDate)
-                animeEpisodeCount.also { it.isGone = true }.text = context.getString(R.string.episode_count, animeAttributes.episodeCount)
-                animeAgeRating.also { it.isGone = true }.text = context.getString(R.string.age_rating, animeAttributes.ageRating)
+                animeName.text = animeAttributes.canonicalTitle
+                animeStartDate.text = context.getString(R.string.start_date, animeAttributes.startDate)
+                animeEndDate.text = context.getString(R.string.end_date, animeAttributes.endDate)
+                animeEpisodeCount.text = context.getString(R.string.episode_count, animeAttributes.episodeCount)
+                animeAgeRating.text = context.getString(R.string.age_rating, animeAttributes.ageRating)
                 animeImage.load(animeAttributes.posterImage.small) {
-                    listener { _, _ ->
-                        animeName.isGone = false
-                        animeStartDate.isGone = false
-                        animeEndDate.isGone = false
-                        animeEpisodeCount.isGone = false
-                        animeAgeRating.isGone = false
-                        viewHolderShimmerItem.isGone = true
-                    }
+                    placeholder(R.drawable.loading_animation)
                 }
                 root.setOnClickListener {
                     onClick(animeData)
