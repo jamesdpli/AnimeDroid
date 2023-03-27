@@ -2,9 +2,9 @@
 
 ## **Demo:**
 
- | Anime List                                                       | Anime Details                                                         |
-|------------------------------------------------------------------|-----------------------------------------------------------------------|
-| ![infiniteScrollDemo.gif](readMeAndOtherResources/animeList.gif) | ![shimmerShowCasePart2.gif](readMeAndOtherResources/animeDetails.gif) |
+ | Anime List                                                 | Anime Details                                                 |
+|------------------------------------------------------------|---------------------------------------------------------------|
+| <img src=readMeAndOtherResources/animeList.gif width=200/> | <img src=readMeAndOtherResources/animeDetails.gif width=200/> |
 
 ## **Architecture:**
 **Single-Activity Architecture**  - 
@@ -12,7 +12,7 @@
 **Model-View-ViewModel** -
 
 ## **Package Structure:**
-![img.png](readMeAndOtherResources/packageStructure.png)
+![packageStructure.png](readMeAndOtherResources/packageStructure.png)
 
 ## **Dependency Graph:**
 
