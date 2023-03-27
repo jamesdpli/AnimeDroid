@@ -1,4 +1,4 @@
-# AnimeDroid ( This project is a work in progress)
+# AnimeDroid 
 
 ## **Demo:**
 | Anime List Shimmer Load                                | Anime List infinite Scroll                       | Anime Details                                        |
@@ -7,9 +7,9 @@
 
 ## **Architecture:**
 
-**Single-Activity Architecture**  -
+**Single-Activity Architecture**  - Coming soon
 
-**Model-View-ViewModel** -
+**Model-View-ViewModel** - Coming soon
 
 ## **Package Structure:**
 
