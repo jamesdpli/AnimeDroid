@@ -1,19 +1,9 @@
 # AnimeDroid ( This project is a work in progress)
 
 ## **Demo:**
-
-<div align="centre">
-  <table>
-    <tr>
-      <th>Anime List</th>
-      <th>AnimeDetails</th>
-    </tr>
-    <tr>
-      <th><img src=readMeAndOtherResources/animeList.gif width=160 height=400/></th>
-      <th><img src=readMeAndOtherResources/animeDetails.gif width=160 height=400/></th>
-    </tr>
-  </table>
-</div>
+| Anime List Shimmer Load                                | Anime List infinite Scroll                       | Anime Details                                        |
+|--------------------------------------------------------|--------------------------------------------------|------------------------------------------------------|
+| <img src=readmeAndOtherResources/shimmerShowcase.gif/> | <img src=readMeAndOtherResources/animeList.gif/> | <img src=readMeAndOtherResources/animeDetails.gif /> |
 
 ## **Architecture:**
 
