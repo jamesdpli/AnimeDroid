@@ -2,9 +2,9 @@
 
 ## **Demo:**
 
- | Anime List                                                | Anime Details                                                |
-|-----------------------------------------------------------|--------------------------------------------------------------|
-| <img src=readMeAndOtherResources/animeList.gif width=50/> | <img src=readMeAndOtherResources/animeDetails.gif width=50/> |
+ | Anime List                                                 | Anime Details                                                 |
+|------------------------------------------------------------|---------------------------------------------------------------|
+| <img src=readMeAndOtherResources/animeList.gif width=100/> | <img src=readMeAndOtherResources/animeDetails.gif width=100/> |
 
 ## **Architecture:**
 **Single-Activity Architecture**  - 
