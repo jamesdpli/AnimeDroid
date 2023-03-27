@@ -2,9 +2,9 @@
 
 ## **Demo:**
 
-| Mode         | Anime List   | Anime Details |
-|--------------|--------------|---------------|
-| Place holder | Place holder | Place holder  |
+ | Anime List                                                       | Anime Details                                                         |
+|------------------------------------------------------------------|-----------------------------------------------------------------------|
+| ![infiniteScrollDemo.gif](readMeAndOtherResources/animeList.gif) | ![shimmerShowCasePart2.gif](readMeAndOtherResources/animeDetails.gif) |
 
 ## **Architecture:**
 **Single-Activity Architecture**  - 
@@ -12,9 +12,11 @@
 **Model-View-ViewModel** -
 
 ## **Package Structure:**
-![img.png](readMeAndOtherResources/img.png)
+![img.png](readMeAndOtherResources/packageStructure.png)
 
 ## **Dependency Graph:**
+
+**Diagram coming soon**
 
 ## **Branches And Related Pull Requests:**
 
