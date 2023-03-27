@@ -4,7 +4,7 @@
 
  | Anime List                                                            | Anime Details                                                            |
 |-----------------------------------------------------------------------|--------------------------------------------------------------------------|
-| <img src=readMeAndOtherResources/animeList.gif width=150 height=300/> | <img src=readMeAndOtherResources/animeDetails.gif width=150 height=300/> |
+| <img src=readMeAndOtherResources/animeList.gif width=160 height=400/> | <img src=readMeAndOtherResources/animeDetails.gif width=160 height=400/> |
 
 ## **Architecture:**
 **Single-Activity Architecture**  - 
