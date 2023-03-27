@@ -3,18 +3,26 @@
 ## **Demo:**
 
 <div align="centre">
-
- | Anime List                                                            | Anime Details                                                            |
-|-----------------------------------------------------------------------|--------------------------------------------------------------------------|
-| <img src=readMeAndOtherResources/animeList.gif width=160 height=400/> | <img src=readMeAndOtherResources/animeDetails.gif width=160 height=400/> |
+  <table>
+    <tr>
+      <th>Anime List</th>
+      <th>AnimeDetails</th>
+    </tr>
+    <tr>
+      <th><img src=readMeAndOtherResources/animeList.gif width=160 height=400/></th>
+      <th><img src=readMeAndOtherResources/animeDetails.gif width=160 height=400/></th>
+    </tr>
+  </table>
 </div>
 
 ## **Architecture:**
-**Single-Activity Architecture**  - 
+
+**Single-Activity Architecture**  -
 
 **Model-View-ViewModel** -
 
 ## **Package Structure:**
+
 ![packageStructure.png](readMeAndOtherResources/packageStructure.png)
 
 ## **Dependency Graph:**
@@ -37,28 +45,29 @@
 | updateDaggerImplementation    | https://github.com/jamesdpli/AnimeDroid/pull/3 | Makes use of DaggerFragment, DaggerAppCompatActivity etc        |
 
 ## **Libraries used:**
+
 - [Jetpack](https://developer.android.com/jetpack)
-    - [Android KTX](https://developer.android.com/kotlin/ktx.html) 
-    - [AndroidX](https://developer.android.com/jetpack/androidx) 
+    - [Android KTX](https://developer.android.com/kotlin/ktx.html)
+    - [AndroidX](https://developer.android.com/jetpack/androidx)
     - [ViewBinding](https://developer.android.com/topic/libraries/view-binding)
-    - [Navigation](https://developer.android.com/jetpack/androidx/releases/navigation) 
-    - [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) 
+    - [Navigation](https://developer.android.com/jetpack/androidx/releases/navigation)
+    - [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle)
     - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
     - [Paging3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
     - [RecyclerView](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView)
-- [Dagger Android](https://dagger.dev/dev-guide/android.html) 
-- [Retrofit](https://square.github.io/retrofit/) 
-- [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) 
-- [Flow](https://developer.android.com/kotlin/flow) 
-- [Material Design](https://material.io/develop/android/docs/getting-started/) 
-- [Coil](https://github.com/coil-kt/coil) 
-- [Shimmer](https://facebook.github.io/shimmer-android/) 
+- [Dagger Android](https://dagger.dev/dev-guide/android.html)
+- [Retrofit](https://square.github.io/retrofit/)
+- [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
+- [Flow](https://developer.android.com/kotlin/flow)
+- [Material Design](https://material.io/develop/android/docs/getting-started/)
+- [Coil](https://github.com/coil-kt/coil)
+- [Shimmer](https://facebook.github.io/shimmer-android/)
 
 ## **Credits**
+
 | Credits | Description                                                                                                                                                                                                            | Link To Docs                   |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | Kitsu   | Kitsu is a modern anime discovery platform that helps you track the anime you're watching, discover new anime and socialize with other fans. With the Kitsu API you can do everything the client can do and much more. | https://kitsu.docs.apiary.io/# | 
-
 
 ```
 Copyright 2023 James Dudhi-Price
