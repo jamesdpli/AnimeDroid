@@ -2,9 +2,12 @@
 
 ## **Demo:**
 
+<div align="centre">
+
  | Anime List                                                            | Anime Details                                                            |
 |-----------------------------------------------------------------------|--------------------------------------------------------------------------|
 | <img src=readMeAndOtherResources/animeList.gif width=160 height=400/> | <img src=readMeAndOtherResources/animeDetails.gif width=160 height=400/> |
+</div>
 
 ## **Architecture:**
 **Single-Activity Architecture**  - 
