@@ -3,7 +3,7 @@
 ## **Demo:**
 | Anime List Shimmer Load                                | Anime List infinite Scroll                       | Anime Details                                        |
 |--------------------------------------------------------|--------------------------------------------------|------------------------------------------------------|
-| <img src=readmeAndOtherResources/shimmerShowcase.gif/> | <img src=readMeAndOtherResources/animeList.gif/> | <img src=readMeAndOtherResources/animeDetails.gif /> |
+| <img src=readMeAndOtherResources/shimmerShowcase.gif/> | <img src=readMeAndOtherResources/animeList.gif/> | <img src=readMeAndOtherResources/animeDetails.gif /> |
 
 ## **Architecture:**
 
