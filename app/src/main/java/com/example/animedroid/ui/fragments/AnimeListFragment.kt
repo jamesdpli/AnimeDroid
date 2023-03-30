@@ -28,9 +28,7 @@ class AnimeListFragment : DaggerFragment() {
     }
 
     private val animeListAdapter by lazy {
-        AnimeListAdapter(requireContext()) { anime ->
-            adapterOnClick(anime)
-        }
+        AnimeListAdapter(requireContext()) { anime -> adapterOnClick(anime) }
     }
 
     override fun onCreateView(
@@ -61,9 +59,7 @@ class AnimeListFragment : DaggerFragment() {
 
     private fun adapterOnClick(anime: Data) {
         findNavController().navigate(
-            AnimeListFragmentDirections.actionAnimeListFragmentToAnimeDetailsFragment(
-                anime.id
-            )
+            AnimeListFragmentDirections.actionAnimeListFragmentToAnimeDetailsFragment(anime.id)
         )
     }
 

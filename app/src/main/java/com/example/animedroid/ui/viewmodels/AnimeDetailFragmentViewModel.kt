@@ -15,10 +15,8 @@ class AnimeDetailFragmentViewModel @Inject constructor(private val repository: A
     private val _animeDetailLiveData = MutableLiveData<NetworkAnime>()
     val animeDetailLiveData: LiveData<NetworkAnime> = _animeDetailLiveData
 
-    fun getAnimeById(animeId: String) {
-        viewModelScope.launch {
+    fun getAnimeById(animeId: String) = viewModelScope.launch {
             val response = repository.getAnimeById(animeId).body()
             _animeDetailLiveData.postValue(response!!)
-        }
     }
 }

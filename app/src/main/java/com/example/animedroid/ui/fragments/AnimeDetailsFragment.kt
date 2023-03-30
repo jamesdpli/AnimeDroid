@@ -44,7 +44,7 @@ class AnimeDetailsFragment : DaggerFragment() {
         viewModel.getAnimeById(animeId = safeArgs.animeId)
     }
 
-    private fun observeAnimeDetailsLiveData() =  viewModel.animeDetailLiveData.observe(viewLifecycleOwner)  {
+    private fun observeAnimeDetailsLiveData() = viewModel.animeDetailLiveData.observe(viewLifecycleOwner)  {
         response -> bindLiveDataToUiElements(response)
     }
 
