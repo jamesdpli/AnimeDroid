@@ -48,7 +48,7 @@
 - [Dagger Android](https://dagger.dev/dev-guide/android.html)
 - [Retrofit](https://square.github.io/retrofit/)
 - [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
-- [Flow](https://developer.android.com/kotlin/flow)
+- [Flow](https://developer.android.com/kotlin/flow) -> Currently using live data but flow branch is coming soon
 - [Material Design](https://material.io/develop/android/docs/getting-started/)
 - [Coil](https://github.com/coil-kt/coil)
 - [Shimmer](https://facebook.github.io/shimmer-android/)
