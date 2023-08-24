@@ -28,7 +28,7 @@ class AnimeListFragment : DaggerFragment() {
     }
 
     private val animeListAdapter by lazy {
-        AnimeListAdapter(requireContext()) { anime -> adapterOnClick(anime) }
+        AnimeListAdapter { anime -> adapterOnClick(anime) }
     }
 
     override fun onCreateView(

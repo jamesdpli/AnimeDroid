@@ -1,9 +1,7 @@
 package com.example.animedroid.ui.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.view.isGone
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +10,7 @@ import com.example.animedroid.R
 import com.example.animedroid.data.responses.NetworkAnimeList.Data
 import com.example.animedroid.databinding.AnimeRecyclerViewItemBinding
 
-class AnimeListAdapter(private val context: Context, private val onClick: (Data) -> Unit) :
+class AnimeListAdapter(private val onClick: (Data) -> Unit) :
     PagingDataAdapter<Data, AnimeListAdapter.AnimeViewHolder>(AnimeDiffCallback) {
 
     inner class AnimeViewHolder(
@@ -22,13 +20,12 @@ class AnimeListAdapter(private val context: Context, private val onClick: (Data)
         // Bind members
         fun bind(animeData: Data) {
             val animeAttributes = animeData.attributes
-
             with(binding) {
                 animeName.text = animeAttributes.canonicalTitle
-                animeStartDate.text = context.getString(R.string.start_date, animeAttributes.startDate)
-                animeEndDate.text = context.getString(R.string.end_date, animeAttributes.endDate)
-                animeEpisodeCount.text = context.getString(R.string.episode_count, animeAttributes.episodeCount)
-                animeAgeRating.text = context.getString(R.string.age_rating, animeAttributes.ageRating)
+                animeStartDate.text = itemView.resources.getString(R.string.start_date, animeAttributes.startDate)
+                animeEndDate.text = itemView.resources.getString(R.string.end_date, animeAttributes.endDate)
+                animeEpisodeCount.text = itemView.resources.getString(R.string.episode_count, animeAttributes.episodeCount)
+                animeAgeRating.text = itemView.resources.getString(R.string.age_rating, animeAttributes.ageRating)
                 animeImage.load(animeAttributes.posterImage.small) {
                     placeholder(R.drawable.loading_animation)
                 }
