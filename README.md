@@ -1,7 +1,7 @@
 # AnimeDroid 
 
 ## **Demo:**
-| Anime List Shimmer Load                                | Anime List infinite Scroll                       | Anime Details                                        |
+| Anime List Shimmer Load                                | Anime List paged Scrolling                       | Anime Details                                        |
 |--------------------------------------------------------|--------------------------------------------------|------------------------------------------------------|
 | <img src=readMeAndOtherResources/shimmerShowcase.gif/> | <img src=readMeAndOtherResources/animeList.gif/> | <img src=readMeAndOtherResources/animeDetails.gif /> |
 
