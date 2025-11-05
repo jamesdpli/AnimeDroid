@@ -49,8 +49,8 @@ class AnimeListFragment : DaggerFragment() {
     }
 
     private fun observePagedData() = viewModel.pagedAnimeData.observe(viewLifecycleOwner) {
-            listData -> animeListAdapter.submitData(lifecycle, listData)
-        }
+        listData -> animeListAdapter.submitData(lifecycle, listData)
+    }
 
     private fun observeLoadState() = animeListAdapter.addLoadStateListener {
         binding.shimmerFrameLayout.isVisible = it.refresh is LoadState.Loading
@@ -59,7 +59,9 @@ class AnimeListFragment : DaggerFragment() {
 
     private fun adapterOnClick(anime: Data) {
         findNavController().navigate(
-            AnimeListFragmentDirections.actionAnimeListFragmentToAnimeDetailsFragment(anime.id)
+            directions = AnimeListFragmentDirections.actionAnimeListFragmentToAnimeDetailsFragment(
+                anime.id
+            )
         )
     }
 
